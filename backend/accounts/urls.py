@@ -4,13 +4,16 @@ from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 from rest_framework import routers
 
-from .views import ProfileViewSet, UserViewSet
+from .views import ProfileViewSet, UserViewSet, ActionViewSet, MatchViewSet, ClubViewSet
 
 
 router = routers.DefaultRouter()
 # router.register('plans', PlanViewSet, base_name='plans-list')
 router.register('profiles', ProfileViewSet, base_name='profiles-list')
 router.register('users', UserViewSet, base_name='profiles-list')
+router.register('club', ClubViewSet, base_name='club-list')
+router.register('match', MatchViewSet, base_name='match-list')
+router.register('action', ActionViewSet, base_name='action-list')
 
 
 

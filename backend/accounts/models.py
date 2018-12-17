@@ -18,15 +18,19 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50, null=False)
     second_name = models.CharField(max_length=50, null=False)
-    money_count = models.DecimalField(max_digits=10, decimal_places=2)
+    money_count = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     group_id = models.ForeignKey(User_group, on_delete=models.CASCADE, blank=True, null=True)
     # inst_profile_type = models.CharField(max_length=1, choices=INST_PROFILE_CHOICES, default='e')
 
 
 class Club(models.Model):
   name = models.CharField(max_length=150, null=False)
+  logo = models.CharField(max_length=150, blank=True, null=True)
   count_game = models.IntegerField(default=0)
   win_count_game = models.IntegerField(default=0)
+
+  def __str__(self):
+      return self.name
 
 class Match(models.Model):
     club_1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='first_club', blank=True, null=True)
@@ -34,6 +38,9 @@ class Match(models.Model):
     data = models.DateTimeField()
     goal_1 = models.IntegerField(default=0)
     goal_2 = models.IntegerField(default=0)
+    
+    def __str__(self):
+        return '{0}-{1}'.format(self.club_1, self.club_2)
 
 class Action(models.Model):
     name = models.CharField(max_length=50, null=False)
