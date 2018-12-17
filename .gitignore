@@ -1,0 +1,33 @@
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# Frontend
+frontend/.idea
+frontend/.vscode
+frontend/dist
+frontend/node_modules
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+
+# Backend
+backend/config/development_keys.py
+backend/config/production.py
+backend/env/
+backend/migrations/
+backend/venv/
+
+# Misc
+__pycache__
+.DS_Store
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+.idea/
+.mypy_cache
+.vagrant
+*.iml
+**/.vscode
+**/*.swp
+*pyc
+volumes
