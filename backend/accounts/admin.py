@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import Plan, Profile
+from .models import Profile
 
-admin.site.register((Plan, Profile))
+admin.site.register((Profile))

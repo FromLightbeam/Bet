@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
 from rest_framework import mixins, viewsets
 
-from .models import Plan, Profile
-from .serializers import PlanSerializer, ProfileSerializer, UserSerializer
+from .models import Profile
+from .serializers import ProfileSerializer, UserSerializer
 # Create your views here.
 
 
@@ -15,10 +15,10 @@ class ProfileViewSet(viewsets.ModelViewSet):
     queryset = Profile.objects.all()
 
 
-class PlanViewSet(viewsets.ModelViewSet):
+# class PlanViewSet(viewsets.ModelViewSet):
 
-    serializer_class = PlanSerializer
-    queryset = Plan.objects.all()
+#     serializer_class = PlanSerializer
+#     queryset = Plan.objects.all()
 
 
 class UserViewSet(viewsets.ModelViewSet):
