@@ -4,11 +4,16 @@ import * as a from "../actions/campaigns";
 const DEFAULT_STATE = {
   campaigns: [],
   myCards: [],
-  campaign: {}
+  campaign: {},
+  actions: []
 };
 
 export default createReducer(
   {
+    [a.setMatchAction]: (state, actions) => ({
+      ...state,
+      actions: actions
+    }),
     [a.setCampaigns]: (state, campaigns) => ({
       ...state,
       campaigns: campaigns

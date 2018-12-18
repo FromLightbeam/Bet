@@ -2,13 +2,14 @@ import { put, call } from 'redux-saga/effects'
 
 import {
   MATCH,
+  MATCH_ACTION,
   MATCH_BY_ID
 } from '../constants/api'
 
 import {
   setMyCards,
   setCampaigns,
-  setMyCampaigns,
+  setMatchAction,
   setCampaignsById,
 } from '../actions/campaigns'
 
@@ -38,12 +39,24 @@ export function* getCampaignsById({ payload }) {
   }
 }
 
-export function* addToMyCards({ payload }) {
+// export function* addToMyCards({ payload }) {
+//   try {
+//     const { card } = payload;
+//     const data = yield callHttp(get, MATCH_ACTION(id));
+//     yield put(setMyCards(card));
+//     yield put(toastr.success('Success!', 'Campaigns added!'))
+//   } catch (err) {
+//     yield put(toastr.error(messageTypes.ERROR, err.message))
+//   }
+// }
+
+
+export function* getMatchAction({ payload }) {
   try {
-    const { card } = payload;
-    // const data = yield callHttp(get, CAMPAIGNS(id));
-    yield put(setMyCards(card));
-    yield put(toastr.success('Success!', 'Campaigns added!'))
+    const { id } = payload;
+    const data = yield callHttp(get, MATCH_ACTION);
+
+    yield put(setMatchAction(data.filter(k => k.match === parseInt(id))));
   } catch (err) {
     yield put(toastr.error(messageTypes.ERROR, err.message))
   }

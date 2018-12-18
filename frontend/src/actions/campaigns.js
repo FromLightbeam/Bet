@@ -17,3 +17,6 @@ export const getLinkForCards = createAction('getLinkForCards');
 
 export const getClubs = createAction('getClubs');
 export const setClubs = createAction('setClubs');
+
+export const getMatchAction = createAction('getMatchAction');
+export const setMatchAction = createAction('setMatchAction');

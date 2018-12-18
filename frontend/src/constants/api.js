@@ -17,4 +17,5 @@ export const GROUP_USERS = `${BACKEND}my/users`
 export const MATCH = `${BACKEND}match`
 export const MATCH_BY_ID = id => `${BACKEND}match/${id}`
 export const CLUB = `${BACKEND}club`
+export const MATCH_ACTION = `${BACKEND}matchaction`
 

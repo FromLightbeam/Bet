@@ -4,9 +4,14 @@ from django.contrib.auth.models import User
 from rest_framework.permissions import AllowAny
 from rest_framework import mixins, viewsets
 
-from .models import Profile, Club, Match, Action
-from .serializers import ProfileSerializer, ClubSerializer, MatchSerializer, ActionSerializer, UserSerializer
+from .models import Profile, Club, Match, Action, MatchAction
+from .serializers import ProfileSerializer, ClubSerializer, MatchSerializer, ActionSerializer, UserSerializer, MatchActionSerializer
 # Create your views here.
+
+
+class MatchActionViewSet(viewsets.ModelViewSet):
+    serializer_class = MatchActionSerializer
+    queryset = MatchAction.objects.all()
 
 
 class ActionViewSet(viewsets.ModelViewSet):

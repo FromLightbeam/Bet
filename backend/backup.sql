@@ -50,6 +50,7 @@ CREATE TABLE `accounts_bet` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `action_id` int(11) DEFAULT NULL,
   `user_id` int(11) DEFAULT NULL,
+  `money` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `accounts_bet_action_id_3f1f4924_fk_accounts_matchaction_id` (`action_id`),
   KEY `accounts_bet_user_id_05e8cf33_fk_auth_user_id` (`user_id`),
@@ -108,6 +109,7 @@ CREATE TABLE `accounts_match` (
   `goal_2` int(11) NOT NULL,
   `club_1_id` int(11) DEFAULT NULL,
   `club_2_id` int(11) DEFAULT NULL,
+  `description` varchar(500) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `accounts_match_club_1_id_8efdd2eb_fk_accounts_club_id` (`club_1_id`),
   KEY `accounts_match_club_2_id_f44bfdd2_fk_accounts_club_id` (`club_2_id`),
@@ -122,7 +124,7 @@ CREATE TABLE `accounts_match` (
 
 LOCK TABLES `accounts_match` WRITE;
 /*!40000 ALTER TABLE `accounts_match` DISABLE KEYS */;
-INSERT INTO `accounts_match` VALUES (1,'2018-12-18 21:06:44.000000',0,0,3,2),(2,'2018-12-18 21:06:53.000000',0,0,4,1),(3,'2018-12-18 21:07:02.000000',0,0,5,1),(4,'2018-12-18 21:07:13.000000',0,0,2,3);
+INSERT INTO `accounts_match` VALUES (1,'2018-12-18 21:06:44.000000',0,0,3,2,'desc'),(2,'2018-12-18 21:06:53.000000',0,0,4,1,'desc'),(3,'2018-12-18 21:07:02.000000',0,0,5,1,'desc'),(4,'2018-12-18 21:07:13.000000',0,0,2,3,'desc');
 /*!40000 ALTER TABLE `accounts_match` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,7 +177,7 @@ CREATE TABLE `accounts_profile` (
   KEY `accounts_profile_group_id_id_caa2de77_fk_accounts_usergroup_id` (`group_id_id`),
   CONSTRAINT `accounts_profile_group_id_id_caa2de77_fk_accounts_usergroup_id` FOREIGN KEY (`group_id_id`) REFERENCES `accounts_usergroup` (`id`),
   CONSTRAINT `accounts_profile_user_id_49a85d32_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -184,7 +186,7 @@ CREATE TABLE `accounts_profile` (
 
 LOCK TABLES `accounts_profile` WRITE;
 /*!40000 ALTER TABLE `accounts_profile` DISABLE KEYS */;
-INSERT INTO `accounts_profile` VALUES (1,1,'',0.00,'',NULL);
+INSERT INTO `accounts_profile` VALUES (1,1,'',0.00,'',NULL),(2,2,'',0.00,'',NULL);
 /*!40000 ALTER TABLE `accounts_profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -312,7 +314,7 @@ CREATE TABLE `auth_user` (
   `date_joined` datetime(6) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -321,7 +323,7 @@ CREATE TABLE `auth_user` (
 
 LOCK TABLES `auth_user` WRITE;
 /*!40000 ALTER TABLE `auth_user` DISABLE KEYS */;
-INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$120000$0kwER897myWq$qrqeHx35pDhh6LqveuQSI3L/RQfwd31ElGOHIwIVTA0=','2018-12-18 21:04:51.344425',1,'light','','','',1,1,'2018-12-18 21:03:50.154816');
+INSERT INTO `auth_user` VALUES (1,'pbkdf2_sha256$120000$0kwER897myWq$qrqeHx35pDhh6LqveuQSI3L/RQfwd31ElGOHIwIVTA0=','2018-12-18 21:04:51.344425',1,'light','','','',1,1,'2018-12-18 21:03:50.154816'),(2,'pbkdf2_sha256$120000$UpYhgroGvIj5$LPLmVJsjBLSR7ZwZ9daxdiUsFHLzo2ll2ve94oY6J8g=',NULL,0,'test','','','',0,1,'2018-12-18 21:24:04.299713');
 /*!40000 ALTER TABLE `auth_user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -402,7 +404,7 @@ CREATE TABLE `django_admin_log` (
   KEY `django_admin_log_user_id_c564eba6_fk_auth_user_id` (`user_id`),
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`),
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -411,7 +413,7 @@ CREATE TABLE `django_admin_log` (
 
 LOCK TABLES `django_admin_log` WRITE;
 /*!40000 ALTER TABLE `django_admin_log` DISABLE KEYS */;
-INSERT INTO `django_admin_log` VALUES (1,'2018-12-18 21:05:05.107634','5','Bayern',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(2,'2018-12-18 21:05:14.100682','4','Manchecter United',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(3,'2018-12-18 21:05:29.598733','3','PSG',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(4,'2018-12-18 21:06:01.767079','5','Bayern',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(5,'2018-12-18 21:06:15.190913','2','Atletico',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(6,'2018-12-18 21:06:24.815821','1','Juventus',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(7,'2018-12-18 21:06:45.491716','1','PSG-Atletico',1,'[{\"added\": {}}]',10,1),(8,'2018-12-18 21:06:55.199014','2','Manchecter United-Juventus',1,'[{\"added\": {}}]',10,1),(9,'2018-12-18 21:07:04.064497','3','Bayern-Juventus',1,'[{\"added\": {}}]',10,1),(10,'2018-12-18 21:07:15.326507','4','Atletico-PSG',1,'[{\"added\": {}}]',10,1),(11,'2018-12-18 21:09:11.875621','1','Action object (1)',1,'[{\"added\": {}}]',8,1),(12,'2018-12-18 21:09:46.447132','2','Draw',1,'[{\"added\": {}}]',8,1),(13,'2018-12-18 21:11:15.809973','3','Loss',1,'[{\"added\": {}}]',8,1),(14,'2018-12-18 21:11:44.140150','1','MatchAction object (1)',1,'[{\"added\": {}}]',13,1),(15,'2018-12-18 21:14:14.825662','2','PSG-Atletico. Draw',1,'[{\"added\": {}}]',13,1),(16,'2018-12-18 21:14:39.977210','3','PSG-Atletico. Loss',1,'[{\"added\": {}}]',13,1),(17,'2018-12-18 21:15:31.371850','4','Bayern-Juventus. Draw',1,'[{\"added\": {}}]',13,1);
+INSERT INTO `django_admin_log` VALUES (1,'2018-12-18 21:05:05.107634','5','Bayern',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(2,'2018-12-18 21:05:14.100682','4','Manchecter United',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(3,'2018-12-18 21:05:29.598733','3','PSG',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(4,'2018-12-18 21:06:01.767079','5','Bayern',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(5,'2018-12-18 21:06:15.190913','2','Atletico',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(6,'2018-12-18 21:06:24.815821','1','Juventus',2,'[{\"changed\": {\"fields\": [\"logo\"]}}]',9,1),(7,'2018-12-18 21:06:45.491716','1','PSG-Atletico',1,'[{\"added\": {}}]',10,1),(8,'2018-12-18 21:06:55.199014','2','Manchecter United-Juventus',1,'[{\"added\": {}}]',10,1),(9,'2018-12-18 21:07:04.064497','3','Bayern-Juventus',1,'[{\"added\": {}}]',10,1),(10,'2018-12-18 21:07:15.326507','4','Atletico-PSG',1,'[{\"added\": {}}]',10,1),(11,'2018-12-18 21:09:11.875621','1','Action object (1)',1,'[{\"added\": {}}]',8,1),(12,'2018-12-18 21:09:46.447132','2','Draw',1,'[{\"added\": {}}]',8,1),(13,'2018-12-18 21:11:15.809973','3','Loss',1,'[{\"added\": {}}]',8,1),(14,'2018-12-18 21:11:44.140150','1','MatchAction object (1)',1,'[{\"added\": {}}]',13,1),(15,'2018-12-18 21:14:14.825662','2','PSG-Atletico. Draw',1,'[{\"added\": {}}]',13,1),(16,'2018-12-18 21:14:39.977210','3','PSG-Atletico. Loss',1,'[{\"added\": {}}]',13,1),(17,'2018-12-18 21:15:31.371850','4','Bayern-Juventus. Draw',1,'[{\"added\": {}}]',13,1),(18,'2018-12-18 21:24:04.389205','2','test',1,'[{\"added\": {}}]',4,1);
 /*!40000 ALTER TABLE `django_admin_log` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -454,7 +456,7 @@ CREATE TABLE `django_migrations` (
   `name` varchar(255) NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -463,7 +465,7 @@ CREATE TABLE `django_migrations` (
 
 LOCK TABLES `django_migrations` WRITE;
 /*!40000 ALTER TABLE `django_migrations` DISABLE KEYS */;
-INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2018-12-18 21:03:23.841496'),(2,'auth','0001_initial','2018-12-18 21:03:24.099046'),(3,'accounts','0001_initial','2018-12-18 21:03:24.220640'),(4,'accounts','0002_plan_name','2018-12-18 21:03:24.252756'),(5,'accounts','0003_auto_20180618_1048','2018-12-18 21:03:24.310585'),(6,'accounts','0004_auto_20180618_1049','2018-12-18 21:03:24.376585'),(7,'accounts','0005_auto_20181217_1731','2018-12-18 21:03:24.551523'),(8,'accounts','0006_auto_20181217_1801','2018-12-18 21:03:24.900615'),(9,'accounts','0007_auto_20181217_1804','2018-12-18 21:03:25.062894'),(10,'accounts','0008_auto_20181217_1808','2018-12-18 21:03:25.281266'),(11,'accounts','0009_auto_20181217_1815','2018-12-18 21:03:25.322617'),(12,'accounts','0010_club_logo','2018-12-18 21:03:25.377064'),(13,'accounts','0011_auto_20181217_1853','2018-12-18 21:03:25.401601'),(14,'accounts','0012_auto_20181218_2059','2018-12-18 21:03:25.637708'),(15,'admin','0001_initial','2018-12-18 21:03:25.712537'),(16,'admin','0002_logentry_remove_auto_add','2018-12-18 21:03:25.732114'),(17,'admin','0003_logentry_add_action_flag_choices','2018-12-18 21:03:25.772528'),(18,'contenttypes','0002_remove_content_type_name','2018-12-18 21:03:25.822761'),(19,'auth','0002_alter_permission_name_max_length','2018-12-18 21:03:25.828801'),(20,'auth','0003_alter_user_email_max_length','2018-12-18 21:03:25.840665'),(21,'auth','0004_alter_user_username_opts','2018-12-18 21:03:25.850832'),(22,'auth','0005_alter_user_last_login_null','2018-12-18 21:03:25.869937'),(23,'auth','0006_require_contenttypes_0002','2018-12-18 21:03:25.871056'),(24,'auth','0007_alter_validators_add_error_messages','2018-12-18 21:03:25.877941'),(25,'auth','0008_alter_user_username_max_length','2018-12-18 21:03:25.888736'),(26,'auth','0009_alter_user_last_name_max_length','2018-12-18 21:03:25.900608'),(27,'sessions','0001_initial','2018-12-18 21:03:25.918264');
+INSERT INTO `django_migrations` VALUES (1,'contenttypes','0001_initial','2018-12-18 21:03:23.841496'),(2,'auth','0001_initial','2018-12-18 21:03:24.099046'),(3,'accounts','0001_initial','2018-12-18 21:03:24.220640'),(4,'accounts','0002_plan_name','2018-12-18 21:03:24.252756'),(5,'accounts','0003_auto_20180618_1048','2018-12-18 21:03:24.310585'),(6,'accounts','0004_auto_20180618_1049','2018-12-18 21:03:24.376585'),(7,'accounts','0005_auto_20181217_1731','2018-12-18 21:03:24.551523'),(8,'accounts','0006_auto_20181217_1801','2018-12-18 21:03:24.900615'),(9,'accounts','0007_auto_20181217_1804','2018-12-18 21:03:25.062894'),(10,'accounts','0008_auto_20181217_1808','2018-12-18 21:03:25.281266'),(11,'accounts','0009_auto_20181217_1815','2018-12-18 21:03:25.322617'),(12,'accounts','0010_club_logo','2018-12-18 21:03:25.377064'),(13,'accounts','0011_auto_20181217_1853','2018-12-18 21:03:25.401601'),(14,'accounts','0012_auto_20181218_2059','2018-12-18 21:03:25.637708'),(15,'admin','0001_initial','2018-12-18 21:03:25.712537'),(16,'admin','0002_logentry_remove_auto_add','2018-12-18 21:03:25.732114'),(17,'admin','0003_logentry_add_action_flag_choices','2018-12-18 21:03:25.772528'),(18,'contenttypes','0002_remove_content_type_name','2018-12-18 21:03:25.822761'),(19,'auth','0002_alter_permission_name_max_length','2018-12-18 21:03:25.828801'),(20,'auth','0003_alter_user_email_max_length','2018-12-18 21:03:25.840665'),(21,'auth','0004_alter_user_username_opts','2018-12-18 21:03:25.850832'),(22,'auth','0005_alter_user_last_login_null','2018-12-18 21:03:25.869937'),(23,'auth','0006_require_contenttypes_0002','2018-12-18 21:03:25.871056'),(24,'auth','0007_alter_validators_add_error_messages','2018-12-18 21:03:25.877941'),(25,'auth','0008_alter_user_username_max_length','2018-12-18 21:03:25.888736'),(26,'auth','0009_alter_user_last_name_max_length','2018-12-18 21:03:25.900608'),(27,'sessions','0001_initial','2018-12-18 21:03:25.918264'),(28,'accounts','0013_auto_20181218_2133','2018-12-18 21:33:53.451664');
 /*!40000 ALTER TABLE `django_migrations` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -502,4 +504,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-12-19  0:17:34
+-- Dump completed on 2018-12-19  1:56:20

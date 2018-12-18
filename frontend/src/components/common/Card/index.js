@@ -7,21 +7,23 @@ import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
+
 import Button from '@material-ui/core/Button';
 import { Link, withRouter } from 'react-router-dom';
 import { withStyles } from '@material-ui/core';
-import { getCampaignsById, addToMyCards, getLinkForCards } from '../../../actions/campaigns';
+import { getCampaignsById, getMatchAction } from '../../../actions/campaigns';
 import styles from './style';
 
 class Campaign extends React.Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.props.getCampaignsById({ id });
+    this.props.getMatchAction({ id });
   }
 
   render() {
-    const { classes, mymatch } = this.props;
-    
+    const { classes, mymatch, actions } = this.props;
+
     return (
       <Card className={classes.card}>
         <CardActionArea>
@@ -44,6 +46,13 @@ class Campaign extends React.Component {
             <Typography component="p">
               {mymatch.description}
             </Typography>
+            {
+              actions.map((k, i) =>
+                <h3 key={i}>
+                  {k.action.name}: {k.coefficient}
+                </h3>
+              )
+            }
           </CardContent>
         </CardActionArea>
         <CardActions className={classes.buy}>
@@ -59,13 +68,11 @@ export default connectTo(
   state => ({
     token: state.auth.token,
     mymatch: state.campaigns.campaign,
-    mycampaign: state.campaigns.myCards,
-
+    actions: state.campaigns.actions,
   }),
   {
-    addToMyCards,
     getCampaignsById,
-    getLinkForCards
+    getMatchAction
   },
   withRouter(withNamespaces()(withStyles(styles)(Campaign)))
 );
