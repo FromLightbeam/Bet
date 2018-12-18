@@ -10,7 +10,13 @@ import styles from './style';
 
 class Home extends React.Component {
   componentDidMount() {
-    this.props.getCampaigns();
+    // this.props.getMyCampaigns();
+    !this.props.token && this.props.history.push('/')
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    !props.token && props.history.push('/')
+    return state;
   }
 
   render() {
@@ -18,11 +24,12 @@ class Home extends React.Component {
     return (
       <Page>
         <div className={classes.content}>
-          <h1>Campaigns</h1>
+          <h1>My Account</h1>
           <div className={classes.cards}>
             {campaigns.map((c, i) =>
               <Link key={i} to={`/campaign/${c.id}`}>
-                <MediaCard 
+                <MediaCard
+                  type='my'
                   name={c.title}
                   image={c.img}
                 />
@@ -38,7 +45,7 @@ class Home extends React.Component {
 export default connectTo(
   state => ({
     token: state.auth.token,
-    campaigns: state.campaigns.campaigns
+    campaigns: state.campaigns.myCards
   }),
   {
     getCampaigns

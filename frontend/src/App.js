@@ -6,7 +6,10 @@ import saga from './sagas'
 import { Provider } from 'react-redux';
 import store from './store';
 import home from './pages/Home'
-import start from './pages/Start'
+import login from './pages/Login'
+import account from './pages/Account'
+import campaign from './pages/Campaign'
+import ReduxToastr from 'react-redux-toastr';
 
 
 class App extends Component {
@@ -14,17 +17,21 @@ class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          <Router>
-            <div>
-              <Switch>
-                <Route exact path="/" component={start} />
-                <Route exact path="/home" component={home} />
+          <React.Fragment>
+            <ReduxToastr closeOnToastrClick={true} />
+            <Router>
+              <div>
+                <Switch>
+                  <Route exact path="/" component={home} />
+                  <Route exact path="/login" component={login} />
+                  <Route exact path="/my/cards" component={account} />
+                  <Route exact path="/campaign/:id" component={campaign} />
 
-                {/* <Route component={GenericNotFound} /> */}
-              </Switch>
-              
-            </div>
-          </Router>
+                  {/* <Route component={GenericNotFound} /> */}
+                </Switch>
+              </div>
+            </Router>
+          </React.Fragment>
         </Provider>
       </div>
     );

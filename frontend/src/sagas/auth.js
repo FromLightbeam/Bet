@@ -16,20 +16,26 @@ import {
 
 import { callHttp } from '../utils/api';
 import { post } from '../utils/httpUtil';
-import { toastr } from 'react-redux-toastr'; 
+import { toastr } from 'react-redux-toastr';
 import * as messageTypes from '../constants/messageTypes';
 
 export function* login({ payload }) {
- 
+
   const { email, password } = payload
   try {
-    
-    const data = yield callHttp(post, LOGIN, { email, password })
-    
+
+    // const data = yield callHttp(post, LOGIN, { email, password })
+
+    // yield put(
+    //   loginOk({
+    //     token: data.token,
+    //     refreshToken: data.refresh_tokens
+    //   })
+    // )
     yield put(
       loginOk({
-        token: data.token,
-        refreshToken: data.refresh_tokens
+        token: '1231213',
+        refreshToken: '12321412413'
       })
     )
   } catch (err) {
@@ -53,7 +59,7 @@ export function* refreshToken() {
 
 export function* forgotPassword({ payload }) {
   const { email } = payload
-  
+
   try {
     yield callHttp(post, FORGOTPASSWORD, { email })
     yield put(forgotPasswordOk())
@@ -66,8 +72,8 @@ export function* forgotPassword({ payload }) {
 
 export function* resetPassword({ payload }) {
   try {
-    const { email, password, token } = payload    
-    yield callHttp(post, RESETPASSWORD, { email: email, password: password, token: token })    
+    const { email, password, token } = payload
+    yield callHttp(post, RESETPASSWORD, { email: email, password: password, token: token })
     yield put(resetPasswordOk())
     toastr.success(messageTypes.SUCCESS, "Reset password succeeded")
   } catch (err) {
