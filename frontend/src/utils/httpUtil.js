@@ -8,7 +8,7 @@ class RequestError {
   
   export const headers = () => ({
     'Content-Type': 'application/json',
-    Authorization: `Bearer ${localStorage.getItem('token')}`,
+    Authorization: `JWT ${localStorage.getItem('token')}`,
     'Accept-Language': localStorage.getItem('i18nextLng')
   });
   

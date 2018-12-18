@@ -16,6 +16,9 @@ class ClubSerializer(serializers.ModelSerializer):
 
 
 class MatchSerializer(serializers.ModelSerializer):
+    club_1 = ClubSerializer()
+    club_2 = ClubSerializer()
+
     class Meta:
         model = Match
         fields = '__all__'

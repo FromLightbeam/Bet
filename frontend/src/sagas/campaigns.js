@@ -1,9 +1,9 @@
 import { put, call } from 'redux-saga/effects'
 
-// import {
-//   CAMPAIGNS,
-//   CAMPAIGNS_BY_ID
-// } from '../constants/api'
+import {
+  MATCH,
+  MATCH_BY_ID
+} from '../constants/api'
 
 import {
   setMyCards,
@@ -12,28 +12,16 @@ import {
   setCampaignsById,
 } from '../actions/campaigns'
 
-// import { callHttp } from '../utils/api';
-// import { post, get } from '../utils/httpUtil';
+import { callHttp } from '../utils/api';
+import { get } from '../utils/httpUtil';
 import { toastr } from 'react-redux-toastr';
 import * as messageTypes from '../constants/messageTypes';
-import { campaigns } from '../assets/mock';
 
 
 export function* getCampaigns() {
   try {
-    const data = campaigns;
-    // const data = yield callHttp(get, CAMPAIGNS);
+    const data = yield callHttp(get, MATCH);
     yield put(setCampaigns(data))
-  } catch (err) {
-    yield put(toastr.error(messageTypes.ERROR, err.message))
-  }
-}
-
-export function* getMyCampaigns() {
-  try {
-    const data = campaigns;
-    // const data = yield callHttp(get, CAMPAIGNS);
-    yield put(setMyCampaigns(data))
   } catch (err) {
     yield put(toastr.error(messageTypes.ERROR, err.message))
   }
@@ -42,10 +30,7 @@ export function* getMyCampaigns() {
 export function* getCampaignsById({ payload }) {
   try {
     const { id } = payload;
-    const int_id = parseInt(id);
-    const data = campaigns.find(c => c.id === int_id);
-
-    // const data = yield callHttp(get, CAMPAIGNS(id));
+    const data = yield callHttp(get, MATCH(id));
     yield put(setCampaignsById(data));
   } catch (err) {
     yield put(toastr.error(messageTypes.ERROR, err.message))

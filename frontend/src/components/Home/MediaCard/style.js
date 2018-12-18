@@ -5,7 +5,14 @@ export const styles = {
   },
   media: {
     // height: 140,
-    width: '100%'
+    width: '50%',
+    height: '100%',
+    margin: 'auto'
   },
-
+  images: {
+    display: 'flex'
+  },
+  text: {
+    textAlign: 'center'
+  }
 };

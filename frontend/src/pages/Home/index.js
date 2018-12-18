@@ -15,6 +15,7 @@ class Home extends React.Component {
 
   render() {
     const { classes, campaigns } = this.props;
+
     return (
       <Page>
         <div className={classes.content}>
@@ -23,8 +24,7 @@ class Home extends React.Component {
             {campaigns.map((c, i) =>
               <Link key={i} to={`/campaign/${c.id}`}>
                 <MediaCard 
-                  name={c.title}
-                  image={c.img}
+                  match={c}
                 />
               </Link>
             )}

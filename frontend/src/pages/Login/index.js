@@ -11,30 +11,42 @@ import styles from './style';
 import { login } from '../../actions/auth';
 
 class Start extends React.Component {
+  state = {
+    username: '',
+    password: ''
+  }
   componentDidMount() {
     this.props.token && this.props.history.replace('/');
   }
 
-  static getDerivedStateFromProps(props, state){
+  static getDerivedStateFromProps(props, state) {
     props.token && props.history.replace('/');
     return state;
   }
 
   render() {
     const { classes } = this.props;
+    const { username, password } = this.state;
     return (
       <Page>
         <div className={classes.loginSections}>
           <Paper className={classes.loginCart}>
 
-            <TextField placeholder='Login' />
-            <TextField placeholder='Password' type='password' />
+            <TextField
+              placeholder='Login'
+              onChange={e => this.setState({ username: e.target.value })}
+            />
+            <TextField
+              placeholder='Password'
+              type='password'
+              onChange={e => this.setState({ password: e.target.value })}
+            />
 
             <Button
               variant="contained"
               color="primary"
               className={classes.button}
-              onClick={() => this.props.login({ login: 'Pyrloh', password: 'Where is my backend?' })}
+              onClick={() => this.props.login({ username, password })}
             >
               Home sweet home
             </Button>

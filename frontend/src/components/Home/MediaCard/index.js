@@ -10,23 +10,27 @@ import { styles } from './style';
 
 
 function MediaCard(props) {
-  const { classes, name, image } = props;
+  const { classes, match } = props;
+  console.log(match);
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
-          component='img'
-          className={classes.media}
-          image={image}
-        />
+        <div className={classes.images}>
+          <img
+            alt='club'
+            className={classes.media}
+            src={match.club_1.logo}
+          />
+          <img
+            alt='club'
+            className={classes.media}
+            src={match.club_2.logo}
+          />
+        </div>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {name}
+          <Typography className={classes.text} variant="h7" component="h2">
+            {`${match.club_1.name} - ${match.club_2.name}`}
           </Typography>
-          {/* <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography> */}
         </CardContent>
       </CardActionArea>
     </Card>
