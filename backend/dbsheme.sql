@@ -5,12 +5,12 @@ drop table action_money;
 drop table bet;
 drop table bet_mutch;
 drop table users;
-drop table user_group;
+drop table UserGroup;
 drop table match;
 drop table club;
 
 
-CREATE TABLE User_group(
+CREATE TABLE UserGroup(
   id_group SERIAL NOT NULL PRIMARY KEY,
   name VARCHAR(30) NOT NULl
 );
@@ -24,7 +24,7 @@ CREATE TABLE Users(
   money_count INT DEFAULT 0,
   group_id INT NOT NULL,
   username VARCHAR NOT NULL,
-  FOREIGN KEY(group_id) REFERENCES User_group(id_group)
+  FOREIGN KEY(group_id) REFERENCES UserGroup(id_group)
 );
 
 CREATE TABLE Club(

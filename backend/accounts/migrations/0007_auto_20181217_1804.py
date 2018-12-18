@@ -19,15 +19,15 @@ class Migration(migrations.Migration):
             name='club_2',
         ),
         migrations.RemoveField(
-            model_name='match_bet',
+            model_name='MatchBet',
             name='action',
         ),
         migrations.RemoveField(
-            model_name='match_bet',
+            model_name='MatchBet',
             name='id_club',
         ),
         migrations.RemoveField(
-            model_name='match_bet',
+            model_name='MatchBet',
             name='id_match',
         ),
         migrations.RemoveField(

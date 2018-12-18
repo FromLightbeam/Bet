@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='Match_bet',
+            name='MatchBet',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('action', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='accounts.Action')),
@@ -48,7 +48,7 @@ class Migration(migrations.Migration):
             ],
         ),
         migrations.CreateModel(
-            name='User_group',
+            name='UserGroup',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(max_length=32)),
@@ -75,7 +75,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='profile',
             name='group_id',
-            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='accounts.User_group'),
+            field=models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to='accounts.UserGroup'),
             preserve_default=False,
         ),
     ]
