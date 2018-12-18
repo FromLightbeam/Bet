@@ -28,7 +28,7 @@ function MediaCard(props) {
           />
         </div>
         <CardContent>
-          <Typography className={classes.text} variant="h7" component="h2">
+          <Typography className={classes.text} variant="subtitle1" component="h2">
             {`${match.club_1.name} - ${match.club_2.name}`}
           </Typography>
         </CardContent>

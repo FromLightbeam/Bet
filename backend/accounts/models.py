@@ -31,6 +31,7 @@ class Match(models.Model):
     club_1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='first_club', blank=True, null=True)
     club_2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='second_club', blank=True, null=True)
     data = models.DateTimeField()
+    description = models.CharField(max_length=500, null=False)
     goal_1 = models.IntegerField(default=0)
     goal_2 = models.IntegerField(default=0)
     
@@ -56,6 +57,7 @@ class MatchAction(models.Model):
 
 class Bet(models.Model):
     action = models.ForeignKey(MatchAction, on_delete=models.CASCADE, blank=True, null=True)
+    money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name='bets')
 
 

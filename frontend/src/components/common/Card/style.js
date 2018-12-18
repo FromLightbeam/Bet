@@ -4,7 +4,13 @@ export default theme => ({
     margin: '20px auto',
   },
   media: {
-    height: 500,
+    // height: 140,
+    width: '50%',
+    height: '100%',
+    margin: 'auto'
+  },
+  images: {
+    display: 'flex'
   },
   section: {
 

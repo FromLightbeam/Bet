@@ -8,7 +8,13 @@ import { getCampaignsById, addToMyCards } from '../../actions/campaigns';
 import styles from './style';
 
 class Campaign extends React.Component {
+  componentDidMount() {
+    !this.props.token && this.props.history.replace('/login');
+  }
 
+  componentDidUpdate() {
+    !this.props.token && this.props.history.replace('/login');
+  }
 
   render() {
     const { classes } = this.props;

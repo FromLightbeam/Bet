@@ -9,8 +9,14 @@ import { getCampaigns } from '../../actions/campaigns';
 import styles from './style';
 
 class Home extends React.Component {
+
   componentDidMount() {
+    !this.props.token && this.props.history.replace('/login');
     this.props.getCampaigns();
+  }
+
+  componentDidUpdate() {
+    !this.props.token && this.props.history.replace('/login');
   }
 
   render() {

@@ -30,10 +30,11 @@ export function* getCampaigns() {
 export function* getCampaignsById({ payload }) {
   try {
     const { id } = payload;
-    const data = yield callHttp(get, MATCH(id));
+    const data = yield callHttp(get, MATCH_BY_ID(id));
     yield put(setCampaignsById(data));
   } catch (err) {
-    yield put(toastr.error(messageTypes.ERROR, err.message))
+    console.log(err);
+    yield put(toastr.error(messageTypes.ERROR, 'Something going wrong'))
   }
 }
 
