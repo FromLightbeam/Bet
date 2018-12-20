@@ -3,9 +3,10 @@ from django.contrib.auth.models import User
 
 from rest_framework.permissions import AllowAny
 from rest_framework import mixins, viewsets
+from rest_framework.response import Response
 
 from .models import Profile, Club, Match, Action, MatchAction, Bet
-from .serializers import ProfileSerializer, ClubSerializer, MatchSerializer, ActionSerializer, UserSerializer, MatchActionSerializer, BetSerializer
+from .serializers import ProfileSerializer, ClubSerializer, MatchSerializer, ActionSerializer, UserSerializer, MatchActionSerializer, BetSerializer, SimpleBetSerializer
 
 # Create your views here.
 
@@ -22,6 +23,25 @@ class BetActionViewSet(viewsets.ModelViewSet):
         This view should return a list of all the purchases
         for the currently authenticated user.
         """
+        user = self.request.user
+        return Bet.objects.filter(user=user)
+
+class SimpleBetViewSet(viewsets.ModelViewSet):
+    serializer_class = SimpleBetSerializer
+
+    def create(self, request):
+        Bet.objects.create(
+            user=self.request.user,
+            money=request.data['money'],
+            action=MatchAction.objects.filter(id=request.data['action'])[0],
+        )
+        return Response({'status': 200})
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the purchases
+        for the currently authenticated user.
+        """ 
         user = self.request.user
         return Bet.objects.filter(user=user)
 

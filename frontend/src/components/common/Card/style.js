@@ -17,5 +17,14 @@ export default theme => ({
   },
   buy: {
     justifyContent: 'flex-end'
+  },
+  footer: {
+    display: 'flex',
+    justifyContent: 'space-around'
+  },
+  betRow: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center'
   }
 });

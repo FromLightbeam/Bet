@@ -2,6 +2,7 @@ import { put, call } from 'redux-saga/effects'
 
 import {
   BET,
+  MAKE_BET,
   MATCH,
   MATCH_ACTION,
   MATCH_BY_ID
@@ -53,7 +54,8 @@ export function* getBets() {
 export function* postBet({ payload }) {
   try {
     const { bet } = payload;
-    const data = yield callHttp(post, BET, bet);
+    const data = yield callHttp(post, MAKE_BET, bet);
+    yield put(toastr.success('Success', 'Bet successfull Added'))
     console.log(data)
     // yield put(setCampaignsById(data));
   } catch (err) {
@@ -78,8 +80,8 @@ export function* getMatchAction({ payload }) {
   try {
     const { id } = payload;
     const data = yield callHttp(get, MATCH_ACTION);
-
-    yield put(setMatchAction(data.filter(k => k.match === parseInt(id))));
+    // console.log(data)
+    yield put(setMatchAction(data.filter(k => k.match.id === parseInt(id))));
   } catch (err) {
     yield put(toastr.error(messageTypes.ERROR, err.message))
   }

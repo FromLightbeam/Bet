@@ -4,7 +4,7 @@ from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 from rest_framework import routers
 
-from .views import ProfileViewSet, UserViewSet, ActionViewSet, MatchViewSet, ClubViewSet, MatchActionViewSet, BetActionViewSet
+from .views import ProfileViewSet, UserViewSet, ActionViewSet, MatchViewSet, ClubViewSet, MatchActionViewSet, BetActionViewSet, SimpleBetViewSet
 
 
 router = routers.DefaultRouter()
@@ -16,6 +16,7 @@ router.register('match', MatchViewSet, base_name='match-list')
 router.register('action', ActionViewSet, base_name='action-list')
 router.register('matchaction', MatchActionViewSet, base_name='match-action-list')
 router.register('bet', BetActionViewSet, base_name='match-action-list')
+router.register('simplebet', SimpleBetViewSet, base_name='match-action-list')
 
 
 

@@ -47,6 +47,11 @@ class BetSerializer(serializers.ModelSerializer):
         model = Bet
         fields = '__all__'
 
+class SimpleBetSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Bet
+        fields = '__all__'
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
