@@ -5,7 +5,8 @@ const DEFAULT_STATE = {
   campaigns: [],
   myCards: [],
   campaign: {},
-  actions: []
+  actions: [],
+  bets: []
 };
 
 export default createReducer(
@@ -17,6 +18,10 @@ export default createReducer(
     [a.setCampaigns]: (state, campaigns) => ({
       ...state,
       campaigns: campaigns
+    }),
+    [a.setBets]: (state, bets) => ({
+      ...state,
+      bets: bets
     }),
     [a.setCampaignsById]: (state, campaign) => ({
       ...state,

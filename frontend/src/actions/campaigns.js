@@ -20,3 +20,7 @@ export const setClubs = createAction('setClubs');
 
 export const getMatchAction = createAction('getMatchAction');
 export const setMatchAction = createAction('setMatchAction');
+
+export const getBets = createAction('getBets');
+export const setBets = createAction('setBets');
+export const postBet = createAction('postBet');

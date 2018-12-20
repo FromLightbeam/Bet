@@ -25,7 +25,7 @@ class Home extends React.Component {
     return (
       <Page>
         <div className={classes.content}>
-          <h1>Campaigns</h1>
+          <h1>Matches</h1>
           <div className={classes.cards}>
             {campaigns.map((c, i) =>
               <Link key={i} to={`/campaign/${c.id}`}>

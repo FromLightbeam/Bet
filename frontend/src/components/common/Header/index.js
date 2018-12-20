@@ -75,7 +75,7 @@ class SimpleAppBar extends React.Component {
                   onClose={this.handleClose}
                 >
                   <MenuItem onClick={this.handleClose}><Link to='/'>Home</Link></MenuItem>
-                  <MenuItem onClick={this.handleClose}><Link to='/my/cards'>My Cards</Link></MenuItem>
+                  <MenuItem onClick={this.handleClose}><Link to='/my/cards'>Bets</Link></MenuItem>
                   <MenuItem onClick={() => { 
                     this.props.logout();
                     this.handleClose();

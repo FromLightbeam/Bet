@@ -54,6 +54,7 @@ class Action(models.Model):
 class MatchAction(models.Model):
     match = models.ForeignKey(Match, on_delete=models.CASCADE, blank=True, null=True)
     action = models.ForeignKey(Action, on_delete=models.CASCADE, blank=True, null=True)
+    result = models.NullBooleanField(blank=True, null=True)
     coefficient = models.FloatField()
     
     def __str__(self):
@@ -64,6 +65,10 @@ class Bet(models.Model):
     action = models.ForeignKey(MatchAction, on_delete=models.CASCADE, blank=True, null=True)
     money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name='bets')
+
+    def __str__(self):
+        return '{0}. {1}'.format(self.action, self.user)
+
 
 
 @receiver(post_save, sender=User)

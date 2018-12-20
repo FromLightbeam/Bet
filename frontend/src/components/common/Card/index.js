@@ -23,7 +23,6 @@ class Campaign extends React.Component {
 
   render() {
     const { classes, mymatch, actions } = this.props;
-
     return (
       <Card className={classes.card}>
         <CardActionArea>
@@ -46,12 +45,18 @@ class Campaign extends React.Component {
             <Typography component="p">
               {mymatch.description}
             </Typography>
-            {
+            {new Date(mymatch.data) > Date.now() ?
               actions.map((k, i) =>
                 <h3 key={i}>
                   {k.action.name}: {k.coefficient}
                 </h3>
-              )
+              ) :
+              <div>
+                <h3>Xg: {mymatch.xg}</h3>
+                <h3>XgA: {mymatch.xgA}</h3>
+                <h3>xPTS: {mymatch.xPTS}</h3>
+                <h3>PPDA: {mymatch.PPDA}</h3>
+              </div>
             }
           </CardContent>
         </CardActionArea>
