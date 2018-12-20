@@ -34,7 +34,12 @@ class Match(models.Model):
     description = models.CharField(max_length=500, null=False)
     goal_1 = models.IntegerField(default=0)
     goal_2 = models.IntegerField(default=0)
-    
+
+    xg = models.FloatField(blank=True, null=True)
+    xgA = models.FloatField(blank=True, null=True)
+    xPTS = models.FloatField(blank=True, null=True)
+    PPDA = models.FloatField(blank=True, null=True)
+
     def __str__(self):
         return '{0}-{1}'.format(self.club_1, self.club_2)
 
