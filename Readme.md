@@ -1,4 +1,4 @@
-Simple project about matches and its stats
+# Simple project about matches and its stats
 
 stack:
 djangorestframework
