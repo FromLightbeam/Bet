@@ -4,9 +4,8 @@ export const styles = {
     margin: 10
   },
   media: {
-    // height: 140,
-    width: '50%',
-    height: '100%',
+    height: '140px',
+    maxWidth: '50%',
     margin: 'auto'
   },
   images: {

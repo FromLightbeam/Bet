@@ -20,17 +20,15 @@ class App extends Component {
           <React.Fragment>
             <ReduxToastr closeOnToastrClick={true} />
             <Router>
-              <div>
-                <Switch>
-                  <Route exact path="/" component={home} />
-                  <Route exact path="/login" component={login} />
-                  <Route exact path="/my/cards" component={account} />
-                  <Route exact path="/campaign/:id" component={campaign} />
+              <Switch>
+                <Route exact path="/" component={home} />
+                <Route exact path="/login" component={login} />
+                <Route exact path="/my/cards" component={account} />
+                <Route exact path="/campaign/:id" component={campaign} />
 
-                  {/* <Route component={GenericNotFound} /> */}
-                </Switch>
-              </div>
-            </Router>
+                {/* <Route component={GenericNotFound} /> */}
+              </Switch>
+          </Router>
           </React.Fragment>
         </Provider>
       </div>
