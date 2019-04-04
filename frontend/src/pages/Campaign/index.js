@@ -21,7 +21,7 @@ class Campaign extends React.Component {
 
     return (
       <Page>
-        < MyCard />
+        <MyCard />
       </Page >
     );
   }

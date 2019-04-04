@@ -4,9 +4,8 @@ export default theme => ({
     margin: '20px auto',
   },
   media: {
-    // height: 140,
-    width: '50%',
-    height: '100%',
+    height: 340,
+    maxWidth: '50%',
     margin: 'auto'
   },
   images: {

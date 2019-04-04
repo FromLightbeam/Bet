@@ -19,7 +19,7 @@ class Profile(models.Model):
 
 class Club(models.Model):
   name = models.CharField(max_length=150, null=False)
-  logo = models.CharField(max_length=150, blank=True, null=True)
+  logo = models.CharField(max_length=250, blank=True, null=True)
   count_game = models.IntegerField(default=0)
   win_count_game = models.IntegerField(default=0)
 
@@ -69,6 +69,10 @@ class Bet(models.Model):
     def __str__(self):
         return '{0}. {1}'.format(self.action, self.user)
 
+
+class Mertics(models.Model):
+    shortname = models.CharField(max_length=20)
+    name = models.CharField(max_length=500)
 
 
 @receiver(post_save, sender=User)
