@@ -11,29 +11,26 @@ import account from './pages/Account'
 import campaign from './pages/Campaign'
 import ReduxToastr from 'react-redux-toastr';
 
+function App() {
+  return (
+    <div>
+      <Provider store={store}>
+        <React.Fragment>
+          <ReduxToastr closeOnToastrClick={true} />
+          <Router>
+            <Switch>
+              <Route exact path="/" component={home} />
+              <Route exact path="/login" component={login} />
+              <Route exact path="/my/cards" component={account} />
+              <Route exact path="/campaign/:id" component={campaign} />
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Provider store={store}>
-          <React.Fragment>
-            <ReduxToastr closeOnToastrClick={true} />
-            <Router>
-              <Switch>
-                <Route exact path="/" component={home} />
-                <Route exact path="/login" component={login} />
-                <Route exact path="/my/cards" component={account} />
-                <Route exact path="/campaign/:id" component={campaign} />
-
-                {/* <Route component={GenericNotFound} /> */}
-              </Switch>
+              {/* <Route component={GenericNotFound} /> */}
+            </Switch>
           </Router>
-          </React.Fragment>
-        </Provider>
-      </div>
-    );
-  }
+        </React.Fragment>
+      </Provider>
+    </div>
+  );
 }
 
 export default App;
