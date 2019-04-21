@@ -57,7 +57,6 @@ function Home(props) {
             </TableHead>
             <TableBody>
               {bets.map(row => {
-
                 return (
                   <TableRow key={row.id}>
                     <TableCell>{row.id}</TableCell>
@@ -68,10 +67,10 @@ function Home(props) {
                     <TableCell numeric>{row.money}</TableCell>
                     <TableCell numeric>{row.money * row.action.coefficient}</TableCell>
                     <TableCell
-                      style={{ fontWeight: 'bold', color: this.getColor(row.action.result) }}
+                      style={{ fontWeight: 'bold', color: getColor(row.action.result) }}
                       numeric
                     >
-                      {this.getResult(row.action.result)}
+                      {getResult(row.action.result)}
                     </TableCell>
                   </TableRow>
                 );

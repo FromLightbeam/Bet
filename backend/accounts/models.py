@@ -70,9 +70,12 @@ class Bet(models.Model):
         return '{0}. {1}'.format(self.action, self.user)
 
 
-class Mertics(models.Model):
+class Mertic(models.Model):
     shortname = models.CharField(max_length=20)
-    name = models.CharField(max_length=500)
+    description = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.shortname
 
 
 @receiver(post_save, sender=User)
