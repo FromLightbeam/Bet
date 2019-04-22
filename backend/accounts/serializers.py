@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.hashers import make_password
 
 from rest_framework import serializers
-from .models import Profile, Club, Match, Action, MatchAction, Bet
+from .models import Profile, Club, Match, Action, MatchAction
 
 # class PlanSerializer(serializers.ModelSerializer):
 #     class Meta:
@@ -40,17 +40,6 @@ class ProfileSerializer(serializers.ModelSerializer):
         model = Profile
         fields = '__all__'
 
-class BetSerializer(serializers.ModelSerializer):
-    action = MatchActionSerializer()
-
-    class Meta:
-        model = Bet
-        fields = '__all__'
-
-class SimpleBetSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Bet
-        fields = '__all__'
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

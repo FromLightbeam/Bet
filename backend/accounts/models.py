@@ -13,9 +13,14 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=50, null=False)
     second_name = models.CharField(max_length=50, null=False)
-    money_count = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     group_id = models.ForeignKey(UserGroup, on_delete=models.CASCADE, blank=True, null=True)
 
+
+class League(models.Model):
+    name = models.CharField(max_length=150, null=False)
+
+    def __str__(self):
+        return self.name
 
 class Club(models.Model):
     name = models.CharField(max_length=150, null=False)
@@ -28,7 +33,9 @@ class Club(models.Model):
 class Match(models.Model):
     club_1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='first_club', blank=True, null=True)
     club_2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='second_club', blank=True, null=True)
-    data = models.DateTimeField()
+    league = models.ForeignKey(League, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)
+    date = models.DateField()
+    time = models.TimeField(blank=True, null=True)
     description = models.CharField(max_length=500, null=False)
 
     def __str__(self):
@@ -41,7 +48,6 @@ class Action(models.Model):
         return self.name
 
 
-
 class MatchAction(models.Model):
     match = models.ForeignKey(Match, on_delete=models.CASCADE, blank=True, null=True)
     action = models.ForeignKey(Action, on_delete=models.CASCADE, blank=True, null=True)
@@ -52,13 +58,13 @@ class MatchAction(models.Model):
         return '{0}. {1}'.format(self.match, self.action)
 
 
-class Bet(models.Model):
-    action = models.ForeignKey(MatchAction, on_delete=models.CASCADE, blank=True, null=True)
-    money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name='bets')
+# class Bet(models.Model):
+#     action = models.ForeignKey(MatchAction, on_delete=models.CASCADE, blank=True, null=True)
+#     money = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, null=True, related_name='bets')
 
-    def __str__(self):
-        return '{0}. {1}'.format(self.action, self.user)
+#     def __str__(self):
+#         return '{0}. {1}'.format(self.action, self.user)
 
 
 class Mertic(models.Model):
