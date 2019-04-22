@@ -18,13 +18,11 @@ class Profile(models.Model):
 
 
 class Club(models.Model):
-  name = models.CharField(max_length=150, null=False)
-  logo = models.CharField(max_length=250, blank=True, null=True)
-  count_game = models.IntegerField(default=0)
-  win_count_game = models.IntegerField(default=0)
+    name = models.CharField(max_length=150, null=False)
+    logo = models.CharField(max_length=250, blank=True, null=True)
 
-  def __str__(self):
-      return self.name
+    def __str__(self):
+        return self.name
 
 
 class Match(models.Model):
@@ -32,13 +30,6 @@ class Match(models.Model):
     club_2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='second_club', blank=True, null=True)
     data = models.DateTimeField()
     description = models.CharField(max_length=500, null=False)
-    goal_1 = models.IntegerField(default=0)
-    goal_2 = models.IntegerField(default=0)
-
-    xg = models.FloatField(blank=True, null=True)
-    xgA = models.FloatField(blank=True, null=True)
-    xPTS = models.FloatField(blank=True, null=True)
-    PPDA = models.FloatField(blank=True, null=True)
 
     def __str__(self):
         return '{0}-{1}'.format(self.club_1, self.club_2)
