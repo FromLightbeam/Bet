@@ -864,6 +864,33 @@
         "xG": 2.32083,
         "xGA": 1.09294,
         "xpts": 2.3320000000000003
+      },
+      {
+        "date": "2019-04-21 12:00:00",
+        "deep": 1,
+        "deep_allowed": 5,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 1,
+        "missed": 3,
+        "npxG": 0.625236,
+        "npxGA": 1.24048,
+        "npxGD": -0.615244,
+        "ppda": {
+          "att": 122,
+          "def": 16
+        },
+        "ppda_allowed": {
+          "att": 246,
+          "def": 31
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 0,
+        "wins": 0,
+        "xG": 0.625236,
+        "xGA": 2.72704,
+        "xpts": 0.13090000000000002
       }
     ],
     "id": "138",
@@ -1707,6 +1734,60 @@
         "xG": 1.24845,
         "xGA": 3.30598,
         "xpts": 0.2248
+      },
+      {
+        "date": "2019-04-14 14:15:00",
+        "deep": 0,
+        "deep_allowed": 5,
+        "draws": 1,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 0.293383,
+        "npxGA": 0.99834,
+        "npxGD": -0.7049570000000001,
+        "ppda": {
+          "att": 269,
+          "def": 20
+        },
+        "ppda_allowed": {
+          "att": 150,
+          "def": 36
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 1,
+        "wins": 0,
+        "xG": 0.293383,
+        "xGA": 0.99834,
+        "xpts": 0.6534
+      },
+      {
+        "date": "2019-04-20 18:45:00",
+        "deep": 3,
+        "deep_allowed": 8,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 1,
+        "missed": 2,
+        "npxG": 0.883156,
+        "npxGA": 1.2673,
+        "npxGD": -0.38414400000000004,
+        "ppda": {
+          "att": 281,
+          "def": 17
+        },
+        "ppda_allowed": {
+          "att": 331,
+          "def": 30
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 1,
+        "wins": 0,
+        "xG": 0.883156,
+        "xGA": 1.2673,
+        "xpts": 1.0083000000000002
       }
     ],
     "id": "140",
@@ -2577,6 +2658,33 @@
         "xG": 0.624479,
         "xGA": 1.09624,
         "xpts": 0.8876000000000001
+      },
+      {
+        "date": "2019-04-21 10:00:00",
+        "deep": 9,
+        "deep_allowed": 5,
+        "draws": 1,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 2,
+        "npxG": 2.21288,
+        "npxGA": 2.0614,
+        "npxGD": 0.15148000000000028,
+        "ppda": {
+          "att": 204,
+          "def": 31
+        },
+        "ppda_allowed": {
+          "att": 196,
+          "def": 33
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 2,
+        "wins": 0,
+        "xG": 2.21288,
+        "xGA": 2.0614,
+        "xpts": 1.4815
       }
     ],
     "id": "141",
@@ -3447,6 +3555,33 @@
         "xG": 1.36776,
         "xGA": 1.39618,
         "xpts": 1.3067
+      },
+      {
+        "date": "2019-04-21 12:00:00",
+        "deep": 5,
+        "deep_allowed": 1,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 0,
+        "npxG": 1.24048,
+        "npxGA": 0.625236,
+        "npxGD": 0.615244,
+        "ppda": {
+          "att": 246,
+          "def": 31
+        },
+        "ppda_allowed": {
+          "att": 122,
+          "def": 16
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 3,
+        "wins": 1,
+        "xG": 2.72704,
+        "xGA": 0.625236,
+        "xpts": 2.7958000000000003
       }
     ],
     "id": "142",
@@ -4317,6 +4452,33 @@
         "xG": 1.75463,
         "xGA": 0.617854,
         "xpts": 2.366
+      },
+      {
+        "date": "2019-04-20 14:15:00",
+        "deep": 3,
+        "deep_allowed": 1,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 0,
+        "npxG": 1.55196,
+        "npxGA": 0.860003,
+        "npxGD": 0.691957,
+        "ppda": {
+          "att": 169,
+          "def": 15
+        },
+        "ppda_allowed": {
+          "att": 233,
+          "def": 23
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 1,
+        "wins": 1,
+        "xG": 1.55196,
+        "xGA": 0.860003,
+        "xpts": 1.9536
       }
     ],
     "id": "143",
@@ -5187,6 +5349,33 @@
         "xG": 0.73101,
         "xGA": 2.60334,
         "xpts": 0.1669
+      },
+      {
+        "date": "2019-04-20 16:30:00",
+        "deep": 4,
+        "deep_allowed": 7,
+        "draws": 1,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 0,
+        "npxG": 1.31996,
+        "npxGA": 1.04463,
+        "npxGD": 0.2753300000000001,
+        "ppda": {
+          "att": 87,
+          "def": 21
+        },
+        "ppda_allowed": {
+          "att": 187,
+          "def": 33
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 0,
+        "wins": 0,
+        "xG": 1.31996,
+        "xGA": 1.04463,
+        "xpts": 1.5643
       }
     ],
     "id": "145",
@@ -6030,6 +6219,60 @@
         "xG": 2.28937,
         "xGA": 1.73543,
         "xpts": 1.82
+      },
+      {
+        "date": "2019-04-14 18:45:00",
+        "deep": 7,
+        "deep_allowed": 4,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 2.86682,
+        "npxGA": 0.279883,
+        "npxGD": 2.5869370000000003,
+        "ppda": {
+          "att": 211,
+          "def": 20
+        },
+        "ppda_allowed": {
+          "att": 254,
+          "def": 31
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 3,
+        "wins": 1,
+        "xG": 2.86682,
+        "xGA": 0.279883,
+        "xpts": 2.9053999999999998
+      },
+      {
+        "date": "2019-04-21 18:45:00",
+        "deep": 5,
+        "deep_allowed": 7,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 0.268434,
+        "npxGA": 1.28231,
+        "npxGD": -1.013876,
+        "ppda": {
+          "att": 335,
+          "def": 14
+        },
+        "ppda_allowed": {
+          "att": 203,
+          "def": 26
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 2,
+        "wins": 1,
+        "xG": 0.268434,
+        "xGA": 2.02559,
+        "xpts": 0.1809
       }
     ],
     "id": "146",
@@ -6900,6 +7143,33 @@
         "xG": 2.60334,
         "xGA": 0.73101,
         "xpts": 2.7316000000000003
+      },
+      {
+        "date": "2019-04-21 14:15:00",
+        "deep": 7,
+        "deep_allowed": 12,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 1,
+        "missed": 3,
+        "npxG": 0.536637,
+        "npxGA": 1.94223,
+        "npxGD": -1.4055929999999999,
+        "ppda": {
+          "att": 315,
+          "def": 34
+        },
+        "ppda_allowed": {
+          "att": 216,
+          "def": 22
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 0,
+        "wins": 0,
+        "xG": 0.536637,
+        "xGA": 1.94223,
+        "xpts": 0.4083
       }
     ],
     "id": "147",
@@ -7770,6 +8040,33 @@
         "xG": 0.962057,
         "xGA": 0.21138,
         "xpts": 2.0922
+      },
+      {
+        "date": "2019-04-20 18:45:00",
+        "deep": 8,
+        "deep_allowed": 3,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 1.2673,
+        "npxGA": 0.883156,
+        "npxGD": 0.38414400000000004,
+        "ppda": {
+          "att": 331,
+          "def": 30
+        },
+        "ppda_allowed": {
+          "att": 281,
+          "def": 17
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 2,
+        "wins": 1,
+        "xG": 1.2673,
+        "xGA": 0.883156,
+        "xpts": 1.6794
       }
     ],
     "id": "148",
@@ -8613,6 +8910,60 @@
         "xG": 1.70378,
         "xGA": 0.679412,
         "xpts": 2.2466
+      },
+      {
+        "date": "2019-04-15 19:00:00",
+        "deep": 7,
+        "deep_allowed": 3,
+        "draws": 1,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 1.20942,
+        "npxGA": 0.651235,
+        "npxGD": 0.5581849999999999,
+        "ppda": {
+          "att": 118,
+          "def": 17
+        },
+        "ppda_allowed": {
+          "att": 409,
+          "def": 22
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 1,
+        "wins": 0,
+        "xG": 1.20942,
+        "xGA": 0.651235,
+        "xpts": 1.8128
+      },
+      {
+        "date": "2019-04-21 14:15:00",
+        "deep": 12,
+        "deep_allowed": 7,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 0,
+        "npxG": 1.94223,
+        "npxGA": 0.536637,
+        "npxGD": 1.4055929999999999,
+        "ppda": {
+          "att": 216,
+          "def": 22
+        },
+        "ppda_allowed": {
+          "att": 315,
+          "def": 34
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 3,
+        "wins": 1,
+        "xG": 1.94223,
+        "xGA": 0.536637,
+        "xpts": 2.4101999999999997
       }
     ],
     "id": "150",
@@ -9456,6 +9807,60 @@
         "xG": 2.60648,
         "xGA": 1.76678,
         "xpts": 2.0121
+      },
+      {
+        "date": "2019-04-14 18:45:00",
+        "deep": 4,
+        "deep_allowed": 7,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 1,
+        "missed": 3,
+        "npxG": 0.279883,
+        "npxGA": 2.86682,
+        "npxGD": -2.5869370000000003,
+        "ppda": {
+          "att": 254,
+          "def": 31
+        },
+        "ppda_allowed": {
+          "att": 211,
+          "def": 20
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 1,
+        "wins": 0,
+        "xG": 0.279883,
+        "xGA": 2.86682,
+        "xpts": 0.0542
+      },
+      {
+        "date": "2019-04-21 10:00:00",
+        "deep": 5,
+        "deep_allowed": 9,
+        "draws": 1,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 2,
+        "npxG": 2.0614,
+        "npxGA": 2.21288,
+        "npxGD": -0.15148000000000028,
+        "ppda": {
+          "att": 196,
+          "def": 33
+        },
+        "ppda_allowed": {
+          "att": 204,
+          "def": 31
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 2,
+        "wins": 0,
+        "xG": 2.0614,
+        "xGA": 2.21288,
+        "xpts": 1.2616
       }
     ],
     "id": "151",
@@ -10326,6 +10731,33 @@
         "xG": 0.617854,
         "xGA": 1.75463,
         "xpts": 0.4268
+      },
+      {
+        "date": "2019-04-20 11:00:00",
+        "deep": 7,
+        "deep_allowed": 2,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 1.78831,
+        "npxGA": 0.331788,
+        "npxGD": 1.456522,
+        "ppda": {
+          "att": 140,
+          "def": 19
+        },
+        "ppda_allowed": {
+          "att": 257,
+          "def": 17
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 2,
+        "wins": 1,
+        "xG": 1.78831,
+        "xGA": 0.331788,
+        "xpts": 2.5349999999999997
       }
     ],
     "id": "152",
@@ -11196,6 +11628,33 @@
         "xG": 1.09294,
         "xGA": 2.32083,
         "xpts": 0.48910000000000003
+      },
+      {
+        "date": "2019-04-21 18:45:00",
+        "deep": 7,
+        "deep_allowed": 5,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 1,
+        "missed": 2,
+        "npxG": 1.28231,
+        "npxGA": 0.268434,
+        "npxGD": 1.013876,
+        "ppda": {
+          "att": 203,
+          "def": 26
+        },
+        "ppda_allowed": {
+          "att": 335,
+          "def": 14
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 1,
+        "wins": 0,
+        "xG": 2.02559,
+        "xGA": 0.268434,
+        "xpts": 2.6967
       }
     ],
     "id": "153",
@@ -12039,6 +12498,60 @@
         "xG": 1.88778,
         "xGA": 1.80228,
         "xpts": 1.4836
+      },
+      {
+        "date": "2019-04-14 16:30:00",
+        "deep": 3,
+        "deep_allowed": 7,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 0,
+        "npxG": 1.39136,
+        "npxGA": 0.964694,
+        "npxGD": 0.4266659999999999,
+        "ppda": {
+          "att": 287,
+          "def": 17
+        },
+        "ppda_allowed": {
+          "att": 215,
+          "def": 26
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 1,
+        "wins": 1,
+        "xG": 1.39136,
+        "xGA": 0.964694,
+        "xpts": 1.6878
+      },
+      {
+        "date": "2019-04-21 16:30:00",
+        "deep": 4,
+        "deep_allowed": 3,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 0.928267,
+        "npxGA": 0.355924,
+        "npxGD": 0.5723429999999999,
+        "ppda": {
+          "att": 130,
+          "def": 16
+        },
+        "ppda_allowed": {
+          "att": 324,
+          "def": 21
+        },
+        "pts": 3,
+        "result": "w",
+        "scored": 2,
+        "wins": 1,
+        "xG": 0.928267,
+        "xGA": 1.0992,
+        "xpts": 1.1253
       }
     ],
     "id": "154",
@@ -12882,6 +13395,60 @@
         "xG": 0.679412,
         "xGA": 1.70378,
         "xpts": 0.5039
+      },
+      {
+        "date": "2019-04-14 14:15:00",
+        "deep": 5,
+        "deep_allowed": 0,
+        "draws": 1,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 0.99834,
+        "npxGA": 0.293383,
+        "npxGD": 0.7049570000000001,
+        "ppda": {
+          "att": 150,
+          "def": 36
+        },
+        "ppda_allowed": {
+          "att": 269,
+          "def": 20
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 1,
+        "wins": 0,
+        "xG": 0.99834,
+        "xGA": 0.293383,
+        "xpts": 1.9893
+      },
+      {
+        "date": "2019-04-20 14:15:00",
+        "deep": 1,
+        "deep_allowed": 3,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 1,
+        "missed": 1,
+        "npxG": 0.860003,
+        "npxGA": 1.55196,
+        "npxGD": -0.691957,
+        "ppda": {
+          "att": 233,
+          "def": 23
+        },
+        "ppda_allowed": {
+          "att": 169,
+          "def": 15
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 0,
+        "wins": 0,
+        "xG": 0.860003,
+        "xGA": 1.55196,
+        "xpts": 0.7614
       }
     ],
     "id": "156",
@@ -13752,6 +14319,33 @@
         "xG": 1.09624,
         "xGA": 0.624479,
         "xpts": 1.7708
+      },
+      {
+        "date": "2019-04-19 19:00:00",
+        "deep": 0,
+        "deep_allowed": 5,
+        "draws": 1,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 2,
+        "npxG": 0.698942,
+        "npxGA": 1.13436,
+        "npxGD": -0.4354180000000001,
+        "ppda": {
+          "att": 207,
+          "def": 20
+        },
+        "ppda_allowed": {
+          "att": 156,
+          "def": 30
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 2,
+        "wins": 0,
+        "xG": 0.698942,
+        "xGA": 1.87763,
+        "xpts": 0.4659
       }
     ],
     "id": "158",
@@ -14595,6 +15189,60 @@
         "xG": 0.829461,
         "xGA": 0.908638,
         "xpts": 1.1489
+      },
+      {
+        "date": "2019-04-15 19:00:00",
+        "deep": 3,
+        "deep_allowed": 7,
+        "draws": 1,
+        "h_a": "h",
+        "loses": 0,
+        "missed": 1,
+        "npxG": 0.651235,
+        "npxGA": 1.20942,
+        "npxGD": -0.5581849999999999,
+        "ppda": {
+          "att": 409,
+          "def": 22
+        },
+        "ppda_allowed": {
+          "att": 118,
+          "def": 17
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 1,
+        "wins": 0,
+        "xG": 0.651235,
+        "xGA": 1.20942,
+        "xpts": 0.8567
+      },
+      {
+        "date": "2019-04-21 16:30:00",
+        "deep": 3,
+        "deep_allowed": 4,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 1,
+        "missed": 2,
+        "npxG": 0.355924,
+        "npxGA": 0.928267,
+        "npxGD": -0.5723429999999999,
+        "ppda": {
+          "att": 324,
+          "def": 21
+        },
+        "ppda_allowed": {
+          "att": 130,
+          "def": 16
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 1,
+        "wins": 0,
+        "xG": 1.0992,
+        "xGA": 0.928267,
+        "xpts": 1.5282
       }
     ],
     "id": "159",
@@ -15438,6 +16086,60 @@
         "xG": 1.3644,
         "xGA": 0.408067,
         "xpts": 2.2876
+      },
+      {
+        "date": "2019-04-14 16:30:00",
+        "deep": 7,
+        "deep_allowed": 3,
+        "draws": 0,
+        "h_a": "h",
+        "loses": 1,
+        "missed": 1,
+        "npxG": 0.964694,
+        "npxGA": 1.39136,
+        "npxGD": -0.4266659999999999,
+        "ppda": {
+          "att": 215,
+          "def": 26
+        },
+        "ppda_allowed": {
+          "att": 287,
+          "def": 17
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 0,
+        "wins": 0,
+        "xG": 0.964694,
+        "xGA": 1.39136,
+        "xpts": 1.0281
+      },
+      {
+        "date": "2019-04-20 11:00:00",
+        "deep": 2,
+        "deep_allowed": 7,
+        "draws": 0,
+        "h_a": "a",
+        "loses": 1,
+        "missed": 2,
+        "npxG": 0.331788,
+        "npxGA": 1.78831,
+        "npxGD": -1.456522,
+        "ppda": {
+          "att": 257,
+          "def": 17
+        },
+        "ppda_allowed": {
+          "att": 140,
+          "def": 19
+        },
+        "pts": 0,
+        "result": "l",
+        "scored": 1,
+        "wins": 0,
+        "xG": 0.331788,
+        "xGA": 1.78831,
+        "xpts": 0.2994
       }
     ],
     "id": "223",
@@ -16308,6 +17010,33 @@
         "xG": 1.39618,
         "xGA": 1.36776,
         "xpts": 1.3487
+      },
+      {
+        "date": "2019-04-19 19:00:00",
+        "deep": 5,
+        "deep_allowed": 0,
+        "draws": 1,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 2,
+        "npxG": 1.13436,
+        "npxGA": 0.698942,
+        "npxGD": 0.4354180000000001,
+        "ppda": {
+          "att": 156,
+          "def": 30
+        },
+        "ppda_allowed": {
+          "att": 207,
+          "def": 20
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 2,
+        "wins": 0,
+        "xG": 1.87763,
+        "xGA": 0.698942,
+        "xpts": 2.3379000000000003
       }
     ],
     "id": "231",
@@ -17178,6 +17907,33 @@
         "xG": 0.21138,
         "xGA": 0.962057,
         "xpts": 0.5562
+      },
+      {
+        "date": "2019-04-20 16:30:00",
+        "deep": 7,
+        "deep_allowed": 4,
+        "draws": 1,
+        "h_a": "a",
+        "loses": 0,
+        "missed": 0,
+        "npxG": 1.04463,
+        "npxGA": 1.31996,
+        "npxGD": -0.2753300000000001,
+        "ppda": {
+          "att": 187,
+          "def": 33
+        },
+        "ppda_allowed": {
+          "att": 87,
+          "def": 21
+        },
+        "pts": 1,
+        "result": "d",
+        "scored": 0,
+        "wins": 0,
+        "xG": 1.04463,
+        "xGA": 1.31996,
+        "xpts": 1.1113
       }
     ],
     "id": "232",

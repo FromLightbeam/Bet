@@ -8854,9 +8854,14 @@
       "title": "Eibar"
     },
     "datetime": "2019-04-14 14:15:00",
+    "forecast": {
+      "d": "0.3573",
+      "l": "0.544",
+      "w": "0.0987"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "1"
     },
     "h": {
       "id": "140",
@@ -8864,10 +8869,10 @@
       "title": "Real Sociedad"
     },
     "id": "10270",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.99834",
+      "h": "0.293383"
     }
   },
   {
@@ -8877,9 +8882,14 @@
       "title": "Villarreal"
     },
     "datetime": "2019-04-14 16:30:00",
+    "forecast": {
+      "d": "0.2841",
+      "l": "0.4679",
+      "w": "0.248"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "0"
     },
     "h": {
       "id": "223",
@@ -8887,10 +8897,10 @@
       "title": "Girona"
     },
     "id": "10274",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.39136",
+      "h": "0.964694"
     }
   },
   {
@@ -8900,9 +8910,14 @@
       "title": "Levante"
     },
     "datetime": "2019-04-14 18:45:00",
+    "forecast": {
+      "d": "0.0404",
+      "l": "0.0046",
+      "w": "0.955"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "3"
     },
     "h": {
       "id": "146",
@@ -8910,10 +8925,10 @@
       "title": "Valencia"
     },
     "id": "10272",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.279883",
+      "h": "2.86682"
     }
   },
   {
@@ -8923,9 +8938,14 @@
       "title": "Real Madrid"
     },
     "datetime": "2019-04-15 19:00:00",
+    "forecast": {
+      "d": "0.3305",
+      "l": "0.4941",
+      "w": "0.1754"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "1"
     },
     "h": {
       "id": "159",
@@ -8933,10 +8953,10 @@
       "title": "Leganes"
     },
     "id": "10275",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.20942",
+      "h": "0.651235"
     }
   },
   {
@@ -8946,9 +8966,14 @@
       "title": "Real Valladolid"
     },
     "datetime": "2019-04-19 19:00:00",
+    "forecast": {
+      "d": "0.1962",
+      "l": "0.7139",
+      "w": "0.0899"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "2",
+      "h": "2"
     },
     "h": {
       "id": "158",
@@ -8956,10 +8981,10 @@
       "title": "Alaves"
     },
     "id": "10277",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.87763",
+      "h": "0.698942"
     }
   },
   {
@@ -8969,9 +8994,14 @@
       "title": "Girona"
     },
     "datetime": "2019-04-20 11:00:00",
+    "forecast": {
+      "d": "0.1656",
+      "l": "0.0446",
+      "w": "0.7898"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "2"
     },
     "h": {
       "id": "152",
@@ -8979,10 +9009,10 @@
       "title": "Celta Vigo"
     },
     "id": "10283",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.331788",
+      "h": "1.78831"
     }
   },
   {
@@ -8992,9 +9022,14 @@
       "title": "Atletico Madrid"
     },
     "datetime": "2019-04-20 14:15:00",
+    "forecast": {
+      "d": "0.285",
+      "l": "0.5562",
+      "w": "0.1588"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "0"
     },
     "h": {
       "id": "156",
@@ -9002,10 +9037,10 @@
       "title": "Eibar"
     },
     "id": "10280",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.55196",
+      "h": "0.860003"
     }
   },
   {
@@ -9015,9 +9050,14 @@
       "title": "SD Huesca"
     },
     "datetime": "2019-04-20 16:30:00",
+    "forecast": {
+      "d": "0.3244",
+      "l": "0.2623",
+      "w": "0.4133"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "0"
     },
     "h": {
       "id": "145",
@@ -9025,10 +9065,10 @@
       "title": "Rayo Vallecano"
     },
     "id": "10282",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.04463",
+      "h": "1.31996"
     }
   },
   {
@@ -9038,9 +9078,14 @@
       "title": "Real Sociedad"
     },
     "datetime": "2019-04-20 18:45:00",
+    "forecast": {
+      "d": "0.3123",
+      "l": "0.232",
+      "w": "0.4557"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "2"
     },
     "h": {
       "id": "148",
@@ -9048,10 +9093,10 @@
       "title": "Barcelona"
     },
     "id": "10285",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.883156",
+      "h": "1.2673"
     }
   },
   {
@@ -9061,9 +9106,14 @@
       "title": "Espanyol"
     },
     "datetime": "2019-04-21 10:00:00",
+    "forecast": {
+      "d": "0.2569",
+      "l": "0.4082",
+      "w": "0.3349"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "2",
+      "h": "2"
     },
     "h": {
       "id": "151",
@@ -9071,10 +9121,10 @@
       "title": "Levante"
     },
     "id": "10281",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "2.21288",
+      "h": "2.0614"
     }
   },
   {
@@ -9084,9 +9134,14 @@
       "title": "Sevilla"
     },
     "datetime": "2019-04-21 12:00:00",
+    "forecast": {
+      "d": "0.0733",
+      "l": "0.0192",
+      "w": "0.9075"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "3"
     },
     "h": {
       "id": "142",
@@ -9094,10 +9149,10 @@
       "title": "Getafe"
     },
     "id": "10278",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.625236",
+      "h": "2.72704"
     }
   },
   {
@@ -9107,9 +9162,14 @@
       "title": "Athletic Club"
     },
     "datetime": "2019-04-21 14:15:00",
+    "forecast": {
+      "d": "0.1815",
+      "l": "0.0756",
+      "w": "0.7429"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "3"
     },
     "h": {
       "id": "150",
@@ -9117,10 +9177,10 @@
       "title": "Real Madrid"
     },
     "id": "10279",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.536637",
+      "h": "1.94223"
     }
   },
   {
@@ -9130,9 +9190,14 @@
       "title": "Leganes"
     },
     "datetime": "2019-04-21 16:30:00",
+    "forecast": {
+      "d": "0.3465",
+      "l": "0.3939",
+      "w": "0.2596"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "2"
     },
     "h": {
       "id": "154",
@@ -9140,10 +9205,10 @@
       "title": "Villarreal"
     },
     "id": "10286",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.0992",
+      "h": "0.928267"
     }
   },
   {
@@ -9153,9 +9218,14 @@
       "title": "Valencia"
     },
     "datetime": "2019-04-21 18:45:00",
+    "forecast": {
+      "d": "0.1224",
+      "l": "0.0195",
+      "w": "0.8581"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "2",
+      "h": "1"
     },
     "h": {
       "id": "153",
@@ -9163,10 +9233,10 @@
       "title": "Real Betis"
     },
     "id": "10284",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.268434",
+      "h": "2.02559"
     }
   },
   {

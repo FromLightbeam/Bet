@@ -74,6 +74,11 @@ class Mertic(models.Model):
     def __str__(self):
         return self.shortname
 
+class MatchMetric(models.Model):
+    value = models.CharField(max_length=20)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='stats')
+    mertic = models.ForeignKey(Mertic, on_delete=models.CASCADE)
+
 
 @receiver(post_save, sender=User)
 def create_user_profile(sender, instance, created, **kwargs):

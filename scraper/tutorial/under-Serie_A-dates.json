@@ -8854,9 +8854,14 @@
       "title": "Napoli"
     },
     "datetime": "2019-04-14 16:00:00",
+    "forecast": {
+      "d": "0.2021",
+      "l": "0.7679",
+      "w": "0.03"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "3",
+      "h": "1"
     },
     "h": {
       "id": "109",
@@ -8864,10 +8869,10 @@
       "title": "Chievo"
     },
     "id": "9888",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.45817",
+      "h": "0.172953"
     }
   },
   {
@@ -8877,9 +8882,14 @@
       "title": "Inter"
     },
     "datetime": "2019-04-14 18:30:00",
+    "forecast": {
+      "d": "0.0496",
+      "l": "0.936",
+      "w": "0.0144"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "3",
+      "h": "1"
     },
     "h": {
       "id": "112",
@@ -8887,10 +8897,10 @@
       "title": "Frosinone"
     },
     "id": "9890",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "3.70567",
+      "h": "0.789702"
     }
   },
   {
@@ -8900,9 +8910,14 @@
       "title": "Empoli"
     },
     "datetime": "2019-04-15 18:30:00",
+    "forecast": {
+      "d": "0.0039",
+      "l": "0.001",
+      "w": "0.9951"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "0"
     },
     "h": {
       "id": "107",
@@ -8910,10 +8925,10 @@
       "title": "Atalanta"
     },
     "id": "9887",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.22043",
+      "h": "5.06313"
     }
   },
   {
@@ -8923,9 +8938,14 @@
       "title": "Udinese"
     },
     "datetime": "2019-04-17 17:00:00",
+    "forecast": {
+      "d": "0.3073",
+      "l": "0.4852",
+      "w": "0.2075"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "2"
     },
     "h": {
       "id": "96",
@@ -8933,10 +8953,10 @@
       "title": "Lazio"
     },
     "id": "9821",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.28089",
+      "h": "0.891528"
     }
   },
   {
@@ -8946,9 +8966,14 @@
       "title": "AC Milan"
     },
     "datetime": "2019-04-20 10:30:00",
+    "forecast": {
+      "d": "0.3599",
+      "l": "0.3142",
+      "w": "0.3259"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "1"
     },
     "h": {
       "id": "230",
@@ -8956,10 +8981,10 @@
       "title": "Parma Calcio 1913"
     },
     "id": "9904",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.800929",
+      "h": "0.830287"
     }
   },
   {
@@ -8969,9 +8994,14 @@
       "title": "Sampdoria"
     },
     "datetime": "2019-04-20 13:00:00",
+    "forecast": {
+      "d": "0.3409",
+      "l": "0.209",
+      "w": "0.4501"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "3"
     },
     "h": {
       "id": "97",
@@ -8979,10 +9009,10 @@
       "title": "Bologna"
     },
     "id": "9897",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.638254",
+      "h": "0.999562"
     }
   },
   {
@@ -8992,9 +9022,14 @@
       "title": "Frosinone"
     },
     "datetime": "2019-04-20 13:00:00",
+    "forecast": {
+      "d": "0.2552",
+      "l": "0.1462",
+      "w": "0.5986"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "1"
     },
     "h": {
       "id": "116",
@@ -9002,10 +9037,10 @@
       "title": "Cagliari"
     },
     "id": "9898",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.848619",
+      "h": "1.648"
     }
   },
   {
@@ -9015,9 +9050,14 @@
       "title": "SPAL 2013"
     },
     "datetime": "2019-04-20 13:00:00",
+    "forecast": {
+      "d": "0.2907",
+      "l": "0.3641",
+      "w": "0.3452"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "4",
+      "h": "2"
     },
     "h": {
       "id": "108",
@@ -9025,10 +9065,10 @@
       "title": "Empoli"
     },
     "id": "9899",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.43346",
+      "h": "1.44713"
     }
   },
   {
@@ -9038,9 +9078,14 @@
       "title": "Torino"
     },
     "datetime": "2019-04-20 13:00:00",
+    "forecast": {
+      "d": "0.3226",
+      "l": "0.2368",
+      "w": "0.4406"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "0"
     },
     "h": {
       "id": "101",
@@ -9048,10 +9093,10 @@
       "title": "Genoa"
     },
     "id": "9900",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.836087",
+      "h": "1.1822"
     }
   },
   {
@@ -9061,9 +9106,14 @@
       "title": "Chievo"
     },
     "datetime": "2019-04-20 13:00:00",
+    "forecast": {
+      "d": "0.2621",
+      "l": "0.263",
+      "w": "0.4749"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "2",
+      "h": "1"
     },
     "h": {
       "id": "96",
@@ -9071,10 +9121,10 @@
       "title": "Lazio"
     },
     "id": "9902",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.18465",
+      "h": "1.6363"
     }
   },
   {
@@ -9084,9 +9134,14 @@
       "title": "Sassuolo"
     },
     "datetime": "2019-04-20 13:00:00",
+    "forecast": {
+      "d": "0.3628",
+      "l": "0.2629",
+      "w": "0.3743"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "1"
     },
     "h": {
       "id": "99",
@@ -9094,10 +9149,10 @@
       "title": "Udinese"
     },
     "id": "9905",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.747252",
+      "h": "0.907616"
     }
   },
   {
@@ -9107,9 +9162,14 @@
       "title": "Fiorentina"
     },
     "datetime": "2019-04-20 16:00:00",
+    "forecast": {
+      "d": "0.276",
+      "l": "0.5212",
+      "w": "0.2028"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "2"
     },
     "h": {
       "id": "98",
@@ -9117,10 +9177,10 @@
       "title": "Juventus"
     },
     "id": "9901",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.4449",
+      "h": "0.900644"
     }
   },
   {
@@ -9130,9 +9190,14 @@
       "title": "Roma"
     },
     "datetime": "2019-04-20 18:30:00",
+    "forecast": {
+      "d": "0.234",
+      "l": "0.1055",
+      "w": "0.6605"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "1"
     },
     "h": {
       "id": "106",
@@ -9140,10 +9205,10 @@
       "title": "Inter"
     },
     "id": "9906",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.528078",
+      "h": "1.60416"
     }
   },
   {
@@ -9153,9 +9218,14 @@
       "title": "Atalanta"
     },
     "datetime": "2019-04-22 17:00:00",
+    "forecast": {
+      "d": "0.2799",
+      "l": "0.2996",
+      "w": "0.4205"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "2",
+      "h": "1"
     },
     "h": {
       "id": "105",
@@ -9163,10 +9233,10 @@
       "title": "Napoli"
     },
     "id": "9903",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "1.33983",
+      "h": "1.59211"
     }
   },
   {
