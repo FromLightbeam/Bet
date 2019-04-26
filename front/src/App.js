@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import axios from 'axios';
 
 function App() {
 
@@ -11,7 +12,7 @@ function App() {
       let data = new FormData();
       data.append('file', file);
       console.log(data)
-      // axios.post('/files', data)...
+      axios.post('http://localhost:8000/api/v0/match-csv', data)
     }
   }
 

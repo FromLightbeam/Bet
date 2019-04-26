@@ -4,7 +4,7 @@ from django.urls import path
 from rest_framework_jwt.views import obtain_jwt_token, refresh_jwt_token, verify_jwt_token
 from rest_framework import routers
 
-from .views import ProfileViewSet, UserViewSet, ActionViewSet, MatchViewSet, ClubViewSet, MatchActionViewSet
+from .views import ProfileViewSet, UserViewSet, ActionViewSet, MatchViewSet, ClubViewSet, MatchActionViewSet, MatchCSVView
 
 
 router = routers.DefaultRouter()
@@ -21,6 +21,7 @@ urlpatterns = [
     path('api-token-auth/', obtain_jwt_token),
     path('api-token-refresh/', refresh_jwt_token),
     path('api-token-verify/', verify_jwt_token),
+    path('match-csv', MatchCSVView.as_view()),
 ] + router.urls
 
 # urlpatterns = [
