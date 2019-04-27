@@ -72,9 +72,9 @@ class MatchCSVView(APIView):
             # csv_reader.fieldnames
         # f = csv_file.decode
         reader = csv.DictReader(csv_file.split('\n'), delimiter=',')
+        requried_fields = ['Date', 'HomeTeam', 'AwayTeam']
         for row in reader:
-            # print(type(row))
-            print(row['Date'])
+            Match
         for name in reader.fieldnames:
             print(name)
             # print('\t'.join(row))

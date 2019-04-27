@@ -22,6 +22,12 @@ class League(models.Model):
     def __str__(self):
         return self.name
 
+
+class Season(models.Model):
+    name = models.CharField(max_length=150)
+    league = models.ForeignKey(League, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)
+
+
 class Club(models.Model):
     name = models.CharField(max_length=150, null=False)
     logo = models.CharField(max_length=250, blank=True, null=True)
@@ -33,7 +39,7 @@ class Club(models.Model):
 class Match(models.Model):
     club_1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='first_club', blank=True, null=True)
     club_2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='second_club', blank=True, null=True)
-    league = models.ForeignKey(League, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)
+    season = models.ForeignKey(Season, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)
     date = models.DateField()
     time = models.TimeField(blank=True, null=True)
     description = models.CharField(max_length=500, null=False)

@@ -11,8 +11,10 @@ function App() {
     if (file) {
       let data = new FormData();
       data.append('file', file);
-      console.log(data)
-      axios.post('http://localhost:8000/api/v0/match-csv', data)
+      // console.log(data)
+      axios.post(
+        'http://localhost:8000/api/v0/match-csv', data
+      );
     }
   }
 
