@@ -1,6 +1,3 @@
-import csv
-from io import StringIO
-
 from django.shortcuts import render
 from django.contrib.auth.models import User
 
@@ -9,9 +6,15 @@ from rest_framework.permissions import AllowAny
 from rest_framework import mixins, viewsets
 from rest_framework.response import Response
 
-from .models import Profile, Club, Match, Action, MatchAction
+from .models import Profile, Club, Match, Action, MatchAction, League, Season, MatchMetric, Metric
 from .serializers import ProfileSerializer, ClubSerializer, MatchSerializer, ActionSerializer, UserSerializer, MatchActionSerializer
 
+import re
+import csv
+import pandas as pd
+
+from .helper import get_or_create
+from io import StringIO
 # Create your views here.
 
 
@@ -57,28 +60,51 @@ class MatchCSVView(APIView):
         Return a list of all users.
         """
         print('\n\nAAAAA\n\n\n')
-        csv_file = request.data['file'].read().decode('utf-8')
-        # A generator returning chunks of the file. 
-        # If multiple_chunks() is True, you should use this method in a loop instead of read().
-
-        # In practice, it’s often easiest simply to use chunks() all the time. 
-        # Looping over chunks() instead of using read() ensures that large files don’t overwhelm your system’s memory.
-        # print(type(csv_file))
-        # print(csv_file)
-
+        # sep func need
         
-            # csv_reader = csv.reader(csv_file, delimiter=',')
-            # csv.reader(csv_file, delimiter=',')
-            # csv_reader.fieldnames
-        # f = csv_file.decode
-        reader = csv.DictReader(csv_file.split('\n'), delimiter=',')
-        requried_fields = ['Date', 'HomeTeam', 'AwayTeam']
-        for row in reader:
-            Match
-        for name in reader.fieldnames:
-            print(name)
-            # print('\t'.join(row))
-        # for name in csv_reader.fieldnames:
-            # print(name)
-        # print(dir(csv_reader.fieldnames))
+        requried_fields = {
+            'date': 'Date',
+            'club_1': 'HomeTeam',
+            'club_2': 'AwayTeam'
+        }
+        file_name = request.data['file'].name        
+        season_name = re.findall("[\d/]+-?[\d]*", file_name)
+        season_name = season_name[0] if len(season_name) else 'default' 
+
+        # Read about chunks. read() may be bad desicion for big data
+        csv_file = request.data['file'].read().decode('utf-8')
+
+        data = pd.read_csv(StringIO(csv_file))
+        
+        league = get_or_create(League, { 'name': 'LaLiga' })
+        season = get_or_create(Season, { 'name': season_name })
+    
+        # print(reader)
+        metrics = []
+        # sep func need
+        for field in data.columns.values:
+            if not field in requried_fields.values():
+                metrics.append(get_or_create(Metric, { 'shortname': field }))
+
+        for index, row in data.iterrows():
+            club_1 = get_or_create(Club, {'name': row[requried_fields['club_1']] })
+            club_2 = get_or_create(Club, {'name': row[requried_fields['club_2']] })
+            match = get_or_create(
+                Match, 
+                {
+                    'club_1': club_1,
+                    'club_2': club_2,
+                    'league': league,
+                    'season': season,
+                    'date': row[requried_fields['date']]
+                }
+            )
+            for metric in metrics:
+                # get or create tooooo long
+                MatchMetric.objects.create(
+                    value=row[metric.shortname],
+                    match=match,
+                    metric=metric
+                )
+
         return Response('tupo kracivo')

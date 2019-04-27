@@ -25,7 +25,9 @@ class League(models.Model):
 
 class Season(models.Model):
     name = models.CharField(max_length=150)
-    league = models.ForeignKey(League, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Club(models.Model):
@@ -39,6 +41,7 @@ class Club(models.Model):
 class Match(models.Model):
     club_1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='first_club', blank=True, null=True)
     club_2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='second_club', blank=True, null=True)
+    league = models.ForeignKey(League, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)    
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)
     date = models.DateField()
     time = models.TimeField(blank=True, null=True)
@@ -46,6 +49,10 @@ class Match(models.Model):
 
     def __str__(self):
         return '{0}-{1}'.format(self.club_1, self.club_2)
+
+    def get_stats(self):
+        return self.stats
+
 
 
 class Action(models.Model):
@@ -73,17 +80,21 @@ class MatchAction(models.Model):
 #         return '{0}. {1}'.format(self.action, self.user)
 
 
-class Mertic(models.Model):
+class Metric(models.Model):
     shortname = models.CharField(max_length=20)
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=500, blank=True)
 
     def __str__(self):
         return self.shortname
 
+
 class MatchMetric(models.Model):
     value = models.CharField(max_length=20)
     match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='stats')
-    mertic = models.ForeignKey(Mertic, on_delete=models.CASCADE)
+    metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.metric)
 
 
 @receiver(post_save, sender=User)
