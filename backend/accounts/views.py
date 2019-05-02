@@ -56,17 +56,14 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class MatchCSVView(APIView):
     def post(self, request, format=None):
-        """
-        Return a list of all users.
-        """
-        print('\n\nAAAAA\n\n\n')
-        # sep func need
-        
+        # sep request for configure that
         requried_fields = {
             'date': 'Date',
             'club_1': 'HomeTeam',
             'club_2': 'AwayTeam'
         }
+
+        # sep func need
         file_name = request.data['file'].name        
         season_name = re.findall("[\d/]+-?[\d]*", file_name)
         season_name = season_name[0] if len(season_name) else 'default' 
