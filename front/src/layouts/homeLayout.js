@@ -1,8 +1,12 @@
 import React from 'react';
+import AppBar from '../components/common/AppBar';
 
-function HomeLayout() {
+function HomeLayout({children}) {
   return (
-    <h1>HomeLayout</h1>
+    <div>
+      <AppBar className='content' />
+      {children}
+    </div>
   );
 }
 

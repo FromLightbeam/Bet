@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-function App() {
+function Admin() {
   function uploadFile(event) {
     let file = event.target.files[0];
     console.log(file);
@@ -39,3 +39,5 @@ function App() {
     </div>
   );
 }
+
+export default Admin

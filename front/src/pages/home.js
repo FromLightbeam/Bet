@@ -1,8 +1,13 @@
 import React from 'react';
+import MatchList from '../components/home/MatchList';
+import Filter from '../components/home/Filter';
 
 function Home() {
   return (
-    <h1>Home</h1>
+    <div className='content'>
+      <Filter />
+      <MatchList />
+    </div>
   );
 }
 
