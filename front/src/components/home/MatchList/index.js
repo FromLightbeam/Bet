@@ -1,13 +1,15 @@
 import React from 'react';
-import Match from "./Match";
+import MatchDay from "./MatchDay";
 
-function MatchList() {
+function MatchList(props) {
+  const { className } = props;
+
   return (
-    <div>
-      <Match>Matchik 1</Match>
-      <Match>Matchik 2</Match>
-      <Match>Matchik 3</Match>
-      <Match>Matchik 4</Match>
+    <div className={className}>
+      <MatchDay>Matchik 1</MatchDay>
+      <MatchDay>Matchik 2</MatchDay>
+      <MatchDay>Matchik 3</MatchDay>
+      <MatchDay>Matchik 4</MatchDay>
     </div>
   );
 }

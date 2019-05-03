@@ -1,9 +1,13 @@
 import React from 'react';
 import Paper from "../../common/Paper";
 
-function Filter() {
+function Filter(props) {
+  
+
+  const { className } = props;
+
   return (
-    <Paper>
+    <Paper className={`${className} item`}>
       Filter
     </Paper>
   );

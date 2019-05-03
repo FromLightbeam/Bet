@@ -1,0 +1,14 @@
+.home {
+  &__content {
+    display: flex;
+    flex: 1;
+  }
+
+  &__filter {
+    flex: 1;
+  }
+
+  &__matches {
+    flex: 4;
+  }
+}

@@ -4,9 +4,12 @@
   margin: auto;
 }
 
+.item {
+  margin: 10px 5px;
+}
+
 body {
   background: hsla(0, 0%, 90%, 1);
-  min-width: 100vh;
 }
 
 a {
