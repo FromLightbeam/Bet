@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import * as api from "../consts/api";
+
 function Admin() {
   function uploadFile(event) {
     let file = event.target.files[0];
@@ -9,9 +11,9 @@ function Admin() {
     if (file) {
       let data = new FormData();
       data.append('file', file);
-      // console.log(data)
+
       axios.post(
-        'http://localhost:8000/api/v0/match-csv', data
+        api.MATCH_CSV, data
       );
     }
   }

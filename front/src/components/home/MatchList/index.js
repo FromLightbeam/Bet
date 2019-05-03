@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MatchDay from "./MatchDay";
 
 function MatchList(props) {
@@ -6,7 +6,7 @@ function MatchList(props) {
 
   return (
     <div className={className}>
-      <MatchDay>Matchik 1</MatchDay>
+      <MatchDay></MatchDay>
       <MatchDay>Matchik 2</MatchDay>
       <MatchDay>Matchik 3</MatchDay>
       <MatchDay>Matchik 4</MatchDay>

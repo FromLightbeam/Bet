@@ -10,15 +10,15 @@ function SimpleAppBar(props) {
   const { className } = props;
 
   return (
-      <AppBar position="static" color="primary">
-        <Toolbar className={className}>
-          <Link to={routes.HOME}>
-            <Typography variant="h6" color="inherit">
-              Matches
+    <AppBar position="static" color="primary">
+      <Toolbar className={className}>
+        <Link to={routes.HOME}>
+          <Typography variant="h6" color="inherit">
+            Matches
             </Typography>
-          </Link>
-        </Toolbar>
-      </AppBar>
+        </Link>
+      </Toolbar>
+    </AppBar>
   );
 }
 
