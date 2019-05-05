@@ -81,7 +81,7 @@ class MatchAction(models.Model):
 
 
 class Metric(models.Model):
-    shortname = models.CharField(max_length=20)
+    shortname = models.CharField(max_length=20, unique=True)
     description = models.CharField(max_length=500, blank=True)
 
     def __str__(self):

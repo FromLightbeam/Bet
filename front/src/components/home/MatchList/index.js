@@ -1,15 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MatchDay from "./MatchDay";
+import Match from "./Match";
 
 function MatchList(props) {
-  const { className } = props;
+  const { className, matches } = props;
 
+  function getMacthDay(matches) {
+    const dates = {}
+    matches.map(m => {
+      if (dates[m.date])
+        dates[m.date].push(m);
+      else
+        dates[m.date] = [m];
+      return m;
+    })
+    return Object.entries(dates)
+    // console.log(dates)
+  }
+
+  const dates = getMacthDay(matches);
   return (
     <div className={className}>
-      <MatchDay></MatchDay>
-      <MatchDay>Matchik 2</MatchDay>
-      <MatchDay>Matchik 3</MatchDay>
-      <MatchDay>Matchik 4</MatchDay>
+      {dates.map(d =>
+        <MatchDay key={d[0]}>
+          {d[1].map(match =>
+            <Match 
+              key={match.id} 
+              club1={match.club_1.name}
+              club2={match.club_2.name}
+            />
+          )}
+        </MatchDay>
+      )}
     </div>
   );
 }

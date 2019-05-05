@@ -14,18 +14,20 @@ function Home() {
 
   useEffect(() => {
     Promise.all([
-      axios.get(api.SEASONS)
-        .then(response => setSeasons(response.data)),
-      axios.get(api.LEAGUES)
-        .then(response => setLeagues(response.data))
+      axios.get(api.SEASONS).then(response => response.data),
+      axios.get(api.LEAGUES).then(response => response.data)
     ])
-      .then(() =>
+      .then(values => {
+        const [seasons, leagues] = values;
+        setSeasons(seasons);
+        setLeagues(leagues);
         axios.get(api.MATCH, {
           params: {
-            season: seasons.length ? seasons[1] : 'default',
-            league: leagues.length ? leagues[0] : 'default'
+            season: seasons.length ? seasons[0].name : 'default',
+            league: leagues.length ? leagues[0].name : 'default'
           }
-        }))
+        }).then(response => setMathes(response.data))
+      })
   }, []);
 
   return (
@@ -37,6 +39,7 @@ function Home() {
       />
       <MatchList
         className='home__matches'
+        matches={matches}
       />
     </div>
   );

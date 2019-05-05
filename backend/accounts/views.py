@@ -6,8 +6,8 @@ from rest_framework.permissions import AllowAny
 from rest_framework import mixins, viewsets
 from rest_framework.response import Response
 
-from .models import Profile, Club, Match, Action, MatchAction, League, Season, MatchMetric, Metric
-from .serializers import ProfileSerializer, ClubSerializer, MatchSerializer, ActionSerializer, UserSerializer, MatchActionSerializer
+from .models import *
+from .serializers import *
 
 import re
 import csv
@@ -28,11 +28,6 @@ class ActionViewSet(viewsets.ModelViewSet):
     queryset = Action.objects.all()
 
 
-class MatchViewSet(viewsets.ModelViewSet):
-    serializer_class = MatchSerializer
-    queryset = Match.objects.all()
-
-
 class ClubViewSet(viewsets.ModelViewSet):
     serializer_class = ClubSerializer
     queryset = Club.objects.all()
@@ -41,6 +36,16 @@ class ClubViewSet(viewsets.ModelViewSet):
 class ProfileViewSet(viewsets.ModelViewSet):
     serializer_class = ProfileSerializer
     queryset = Profile.objects.all()
+
+
+class SeasonViewSet(viewsets.ModelViewSet):
+    serializer_class = SeasonSerializer
+    queryset = Season.objects.all()
+
+
+class LeagueViewSet(viewsets.ModelViewSet):
+    serializer_class = LeagueSerializer
+    queryset = League.objects.all()
 
 # class PlanViewSet(viewsets.ModelViewSet):
 
@@ -52,6 +57,22 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     queryset = User.objects.all()
     permission_classes = [AllowAny]
+
+
+class MatchViewSet(viewsets.ModelViewSet):
+    serializer_class = MatchSerializer
+
+    def get_queryset(self):
+        queryset = Match.objects.all()
+        season = self.request.query_params.get('season')
+        league = self.request.query_params.get('league')
+        print(season)
+        if season:
+            queryset = queryset.filter(season__name=season)
+        elif league:
+            queryset = queryset.filter(league_name=league)
+
+        return queryset
 
 
 class MatchCSVView(APIView):

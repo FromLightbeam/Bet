@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import * as routes from '../../../../consts/routes';
 
 function Match(props) {
-  const { children } = props;
+  const { club1, club2 } = props;
   return (
     <Link to={routes.MATCH}>
-      {children}
+      <div>
+        {`${club1} - ${club2}`}
+      </div>
     </Link>
   );
 }
