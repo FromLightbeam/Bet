@@ -7,7 +7,7 @@ import Club from './pages/club';
 import Admin from './pages/admin';
 import Match from './pages/match';
 import * as routes from './consts/routes';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

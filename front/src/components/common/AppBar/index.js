@@ -15,7 +15,7 @@ function SimpleAppBar(props) {
         <Link to={routes.HOME}>
           <Typography variant="h6" color="inherit">
             Matches
-            </Typography>
+          </Typography>
         </Link>
       </Toolbar>
     </AppBar>

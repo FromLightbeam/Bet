@@ -2,13 +2,15 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import * as routes from '../../../../consts/routes';
+import './style.scss'
 
 function Match(props) {
-  const { club1, club2 } = props;
+  const { match } = props;
+  console.log(match)
   return (
     <Link to={routes.MATCH}>
       <div>
-        {`${club1} - ${club2}`}
+        {`${match.club_1.name} - ${match.club_2.name}`}
       </div>
     </Link>
   );

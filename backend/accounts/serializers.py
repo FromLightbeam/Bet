@@ -17,12 +17,27 @@ class ActionSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class MetricSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Metric
+        fields = '__all__'
+
+
+class MatchMetricSerializer(serializers.ModelSerializer):
+    metric = MetricSerializer()   
+    class Meta:
+        model = MatchMetric
+        fields = '__all__'
+
+
 class MatchSerializer(serializers.ModelSerializer):
     club_1 = ClubSerializer()
     club_2 = ClubSerializer()
+    stats = MatchMetricSerializer(many=True, read_only=True)
 
     class Meta:
         model = Match
+        # fields = ('club_1', 'club_2', 'date', 'stats')
         fields = '__all__'
 
 
