@@ -10,10 +10,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    border-radius: inherit;
   }
 
   &__content {
     text-align: center;
+  }
 
+  &__matches {
+    padding: 10px;
   }
 }

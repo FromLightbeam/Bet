@@ -1,0 +1,11 @@
+.filter {
+  &__content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__select {
+    margin: 5px 0;
+  }
+}

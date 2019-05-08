@@ -14,11 +14,11 @@ function MatchList(props) {
         dates[m.date] = [m];
       return m;
     })
-    return Object.entries(dates)
+    return Object.entries(dates).reverse();
   }
 
   const dates = getMacthDay(matches);
-  console.log(dates)
+
   return (
     <div className={className}>
       {dates.map(d =>
@@ -27,8 +27,6 @@ function MatchList(props) {
             <Match 
               key={match.id} 
               match={match}
-              // club1={match.club_1.name}
-              // club2={match.club_2.name}
             />
           )}
         </MatchDay>

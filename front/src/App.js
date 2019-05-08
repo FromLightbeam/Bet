@@ -15,7 +15,7 @@ function App() {
       <HomeLayout>
         <Route path={routes.HOME} exact component={Home} />
         <Route path={routes.ADMIN} component={Admin} />
-        <Route path={routes.MATCH} component={Match} />
+        <Route path={routes.MATCH(':id')} component={Match} />
         <Route path={routes.CLUB} component={Club} />
       </HomeLayout>
     </Router>

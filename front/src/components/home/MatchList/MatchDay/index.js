@@ -5,12 +5,11 @@ import "./style.scss";
 
 function MatchDay(props) {
   const { children, date } = props;
-  // console.log(date)
 
   return (
     <Paper className='item matchday__content'>
       <div className='matchday__appbar'>{date}</div>
-      {children}
+      <div className='matchday__matches'>{children}</div>
     </Paper>
   );
 }

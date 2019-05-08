@@ -6,10 +6,10 @@ import './style.scss'
 
 function Match(props) {
   const { match } = props;
-  console.log(match)
+
   return (
-    <Link to={routes.MATCH}>
-      <div>
+    <Link to={routes.MATCH(match.id)}>
+      <div className='match__content'>
         {`${match.club_1.name} - ${match.club_2.name}`}
       </div>
     </Link>

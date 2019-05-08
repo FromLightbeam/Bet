@@ -24,7 +24,7 @@ class MetricSerializer(serializers.ModelSerializer):
 
 
 class MatchMetricSerializer(serializers.ModelSerializer):
-    metric = MetricSerializer()   
+    metric = MetricSerializer()
     class Meta:
         model = MatchMetric
         fields = '__all__'
@@ -33,7 +33,7 @@ class MatchMetricSerializer(serializers.ModelSerializer):
 class MatchSerializer(serializers.ModelSerializer):
     club_1 = ClubSerializer()
     club_2 = ClubSerializer()
-    stats = MatchMetricSerializer(many=True, read_only=True)
+    # stats = MatchMetricSerializer(many=True, read_only=True)
 
     class Meta:
         model = Match
