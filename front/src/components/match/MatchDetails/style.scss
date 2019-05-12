@@ -1,3 +1,5 @@
+@import '../../../App.scss';
+
 .match-details {
   &__paper {
     text-align: center;
@@ -7,5 +9,12 @@
   &__table {
     // width: 500px;
     margin: auto;
+  }
+
+  &__head {
+    // background: $primary;
+    // color: white !important;
+    font-size: 1.25em !important;
+    font-weight: bold !important;
   }
 }

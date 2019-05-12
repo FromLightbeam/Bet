@@ -11,6 +11,7 @@ from .serializers import *
 
 import re
 import csv
+import json
 import pandas as pd
 
 from .helper import get_or_create
@@ -87,32 +88,36 @@ class MetricViewSet(viewsets.ModelViewSet):
 
         return queryset
 
+requried_fields = {
+    'date': 'Date',
+    'club_1': 'HomeTeam',
+    'club_2': 'AwayTeam'
+}
 
+# TODO bad naming
+# May be this api need a separate file?
 class MatchCSVView(APIView):
     def post(self, request, format=None):
-        # sep request for configure that
-        requried_fields = {
-            'date': 'Date',
-            'club_1': 'HomeTeam',
-            'club_2': 'AwayTeam'
-        }
+        # TODO sep request for configure that
 
-        # sep func need
-        file_name = request.data['file'].name        
+
+        # TODO sep func need
+        file_name = request.data['file'].name
         season_name = re.findall("[\d/]+-?[\d]*", file_name)
         season_name = season_name[0] if len(season_name) else 'default'
 
-        # Read about chunks. read() may be bad desicion for big data
+        # TODO Read about chunks. read() may be bad desicion for big data
         csv_file = request.data['file'].read().decode('utf-8')
 
         data = pd.read_csv(StringIO(csv_file))
-        
-        league = get_or_create(League, { 'name': 'LaLiga' })
+        # SHEEEEEEEEEEEEEEEEET WARNING FIX IT FIX IT FIX IT FIX IT FIX IT 
+        league = get_or_create(League, { 'name': 'Seria A' })
+        # FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT 
         season = get_or_create(Season, { 'name': season_name })
     
         # print(reader)
         metrics = []
-        # sep func need
+        # TODO sep func need
         for field in data.columns.values:
             if not field in requried_fields.values():
                 metrics.append(get_or_create(Metric, { 'shortname': field }))
@@ -139,3 +144,32 @@ class MatchCSVView(APIView):
                 )
 
         return Response('tupo kracivo')
+
+
+# May be it would be part parser configa?
+class MetricCSVView(APIView):
+    def post(self, request, format=None):
+
+        # TODO Dry
+        file_name = request.data['file'].name
+
+        data = json.load(request.data['file'])
+
+        fields = data['resources'][0]['schema']['fields']
+        # print(Metric.objects.all())
+        metrics = []
+        for field in fields:
+            if not field['name'] in requried_fields.values():
+                metrics.append(field)
+        print(metrics)
+        for metric in metrics:
+            Metric.objects.filter(shortname=metric['name']).update(description=metric['description'])
+        # print(csv_file)
+
+        return Response('darova')
+
+# May be it would be part parser configa?
+class MatchJSONView(APIView):
+    def post(self, request, format=None):
+        
+        return Response('dobryi vecher')

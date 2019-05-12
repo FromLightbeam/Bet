@@ -20,11 +20,16 @@ router.register('seasons', SeasonViewSet, base_name='season-list')
 router.register('leagues', LeagueViewSet, base_name='league-list')
 
 
+MetricCSVView
+
 urlpatterns = [
     path('api-token-auth/', obtain_jwt_token),
     path('api-token-refresh/', refresh_jwt_token),
     path('api-token-verify/', verify_jwt_token),
+
     path('match-csv', MatchCSVView.as_view()),
+    path('match-json', MatchJSONView.as_view()),
+    path('metric-csv', MetricCSVView.as_view()),
 ] + router.urls
 
 # urlpatterns = [

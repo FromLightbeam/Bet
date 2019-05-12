@@ -4,7 +4,7 @@ import axios from 'axios';
 import * as api from "../consts/api";
 
 function Admin() {
-  function uploadFile(event) {
+  function uploadFileMatch(event) {
     let file = event.target.files[0];
     console.log(file);
 
@@ -18,19 +18,43 @@ function Admin() {
     }
   }
 
+  function uploadFileMetric(event) {
+    let file = event.target.files[0];
+    console.log(file);
+
+    if (file) {
+      let data = new FormData();
+      data.append('file', file);
+
+      axios.post(
+        api.METRIC_CSV, data
+      );
+    }
+  }
+
   return (
-    <div className="App">
-      <div>
-        <label>Upload CSV</label>
+    <div className='content'>
+      <div className='item'>
+        <label>Upload CSV Match</label>
         <input
           type='file'
           id='file'
           accept='.csv'
-          onChange={uploadFile}
+          onChange={uploadFileMatch}
         />
       </div>
-      <div>
-        <label>Upload JSON</label>
+      <div className='item'>
+        <label>Upload JSON Metric</label>
+        <input
+          type='file'
+          id='file'
+          accept='.JSON'
+          onChange={uploadFileMetric}
+        />
+        {/* <button onClick={uploadFileMatch}>Reload</button> */}
+      </div>
+      <div className='item'>
+        <label>Upload JSON (understat)</label>
         <input
           type='file'
           id='file'

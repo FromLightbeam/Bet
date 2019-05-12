@@ -1,3 +1,4 @@
+
 def get_or_create(model, fields):
     objects = model.objects.filter(**fields) 
     if len(objects):
