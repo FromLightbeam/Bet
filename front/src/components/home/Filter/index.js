@@ -5,7 +5,7 @@ import Select from "../../common/Select";
 import "./style.scss";
 
 function Filter(props) {
-  const { className, seasons, leagues } = props;
+  const { className, seasons, leagues, setSeason, setLeague, season, league } = props;
 
   return (
     <Paper className={`${className} item filter__content`}>
@@ -13,8 +13,8 @@ function Filter(props) {
       {seasons.length ?
         <Select
           native
-          value={seasons[0].name}
-          onChange={() => {}}
+          value={season ? season : (seasons[0].name && '')}
+          onChange={e => setSeason(e.target.value) }
           className='filter__select'
         >
           {seasons.map(s => (
@@ -25,8 +25,8 @@ function Filter(props) {
       {leagues.length ?
         <Select 
           native
-          value={leagues[0].name}
-          onChange={() => {}}
+          value={league ? league : (leagues[0].name && '')}
+          onChange={e => setLeague(e.target.value)}
           className='filter__select'
         >
           {leagues.map(s => (

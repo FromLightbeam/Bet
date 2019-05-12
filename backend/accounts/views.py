@@ -66,11 +66,24 @@ class MatchViewSet(viewsets.ModelViewSet):
         queryset = Match.objects.all()
         season = self.request.query_params.get('season')
         league = self.request.query_params.get('league')
-        print(season)
+
         if season:
             queryset = queryset.filter(season__name=season)
         elif league:
             queryset = queryset.filter(league_name=league)
+
+        return queryset
+
+
+class MetricViewSet(viewsets.ModelViewSet):
+    serializer_class = MatchMetricSerializer
+
+    def get_queryset(self):
+        queryset = MatchMetric.objects.all()
+        match = self.request.query_params.get('match')
+
+        if match:
+            queryset = queryset.filter(match__id=match)
 
         return queryset
 
@@ -87,7 +100,7 @@ class MatchCSVView(APIView):
         # sep func need
         file_name = request.data['file'].name        
         season_name = re.findall("[\d/]+-?[\d]*", file_name)
-        season_name = season_name[0] if len(season_name) else 'default' 
+        season_name = season_name[0] if len(season_name) else 'default'
 
         # Read about chunks. read() may be bad desicion for big data
         csv_file = request.data['file'].read().decode('utf-8')

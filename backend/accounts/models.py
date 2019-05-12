@@ -39,10 +39,13 @@ class Club(models.Model):
 
 
 class Match(models.Model):
+    # Bad naming_1
     club_1 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='first_club', blank=True, null=True)
     club_2 = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='second_club', blank=True, null=True)
     league = models.ForeignKey(League, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)    
     season = models.ForeignKey(Season, on_delete=models.SET_NULL, related_name='matches', blank=True, null=True)
+    goal_1 = models.IntegerField(blank=True, null=True)
+    goal_2 = models.IntegerField(blank=True, null=True)
     date = models.DateField()
     time = models.TimeField(blank=True, null=True)
     description = models.CharField(max_length=500, null=False)

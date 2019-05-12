@@ -4,3 +4,4 @@ export const MATCH_CSV = `${BACK}/match-csv`;
 export const SEASONS = `${BACK}/seasons/`
 export const LEAGUES = `${BACK}/leagues/`
 export const MATCH = `${BACK}/match/`
+export const METRIC = `${BACK}/metric/`

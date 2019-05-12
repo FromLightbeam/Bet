@@ -1,15 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
-import Paper from "../../components/common/Paper";
+import { getMatchById, getMetrics } from "../../api/api";
+import MatchDetails from '../../components/match/MatchDetails';
 import './style.scss';
 
 function Match(props) {
-  console.log(props);
+  const [match, setMatch] = useState({});
+  const [metrics, setMetrics] = useState([]);
+
+  useEffect(() => {
+    const id = props.match.params.id
+    getMatchById(id).then(response => setMatch(response.data));
+    getMetrics(id).then(response => setMetrics(response.data));
+  }, []);
+
+  console.log(match)
+  console.log(metrics)
   return (
     <div className='content'>
-      <Paper className='item'>
-        Match
-      </Paper>
+      <MatchDetails
+        match={match}
+        metrics={metrics}
+      />
     </div>
   );
 }
