@@ -20,8 +20,6 @@ router.register('seasons', SeasonViewSet, base_name='season-list')
 router.register('leagues', LeagueViewSet, base_name='league-list')
 
 
-MetricCSVView
-
 urlpatterns = [
     path('api-token-auth/', obtain_jwt_token),
     path('api-token-refresh/', refresh_jwt_token),

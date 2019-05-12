@@ -10,18 +10,20 @@ def pairwise(data):
 class QuotesSpider(scrapy.Spider):
     name = "insta"
     start_urls = [
-        'https://understat.com/league/La_liga',
-        'https://understat.com/league/Serie_A'
+        'https://understat.com/league/La_liga/2018',
+        'https://understat.com/league/Serie_A/2018'
     ]
 
     def parse(self, response): 
-        page = response.url.split("/")[-1]
-         
+        league = response.url.split("/")[-2]
+        season = response.url.split("/")[-1]
         variable = 'Data'
 
         # pattern = re.compile(r"var \w+%s = JSON.parse\(\'(.*)\'\)" % variable, re.MULTILINE | re.DOTALL)
         # data_pattern = re.compile(r"var \w+%s\s+=\s+JSON.parse\(\'(.*)\'\)" % variable, re.MULTILINE | re.DOTALL)
+
         pattern = re.compile(r"var (\w+)%s\s+=\s+JSON.parse\(\'(.*)\'\)" % variable, re.MULTILINE | re.DOTALL)
+        
         # pattern = re.compile(r"var (\w+)%s" % variable, re.MULTILINE | re.DOTALL)
 
         data = response.xpath('//script[contains(., "var")]/text()').re(pattern)
@@ -35,7 +37,7 @@ class QuotesSpider(scrapy.Spider):
         # print(type(pretty_parsed))
             print('\n\n\n')
         # locations = json.loads(locations)
-            filename = 'under-{0}-{1}.json'.format(page, item[0])
+            filename = 'under-{0}-{1}-{2}.json'.format(league, season, item[0])
             with open(filename, 'wb') as f:
                 f.write(pretty_parsed.encode())
             self.log('Saved file %s' % filename)
