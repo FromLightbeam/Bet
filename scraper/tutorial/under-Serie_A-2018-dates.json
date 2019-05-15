@@ -10030,9 +10030,14 @@
       "title": "Parma Calcio 1913"
     },
     "datetime": "2019-05-13 17:00:00",
+    "forecast": {
+      "d": "0.2099",
+      "l": "0.0877",
+      "w": "0.7024"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "1",
+      "h": "4"
     },
     "h": {
       "id": "97",
@@ -10040,10 +10045,10 @@
       "title": "Bologna"
     },
     "id": "9931",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.572389",
+      "h": "1.84615"
     }
   },
   {
@@ -10053,9 +10058,14 @@
       "title": "Chievo"
     },
     "datetime": "2019-05-13 19:00:00",
+    "forecast": {
+      "d": "0.1157",
+      "l": "0.0124",
+      "w": "0.8719"
+    },
     "goals": {
-      "a": null,
-      "h": null
+      "a": "0",
+      "h": "2"
     },
     "h": {
       "id": "106",
@@ -10063,10 +10073,10 @@
       "title": "Inter"
     },
     "id": "9935",
-    "isResult": false,
+    "isResult": true,
     "xG": {
-      "a": null,
-      "h": null
+      "a": "0.13114",
+      "h": "2.00932"
     }
   },
   {

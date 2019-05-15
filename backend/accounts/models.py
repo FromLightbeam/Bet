@@ -57,6 +57,10 @@ class Match(models.Model):
         return self.stats
 
 
+class Player(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    club = models.ForeignKey(Club, on_delete=models.CASCADE, related_name='players')
+
 
 class Action(models.Model):
     name = models.CharField(max_length=50, null=False)
@@ -91,10 +95,39 @@ class Metric(models.Model):
         return self.shortname
 
 
-class MatchMetric(models.Model):
+class ObjectMetric(models.Model):
     value = models.CharField(max_length=20)
-    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='stats')
     metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.metric)
+    
+    class Meta:
+        abstract = True
+
+
+class MatchMetric(ObjectMetric):
+    # value = models.CharField(max_length=20)
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, related_name='stats')
+    # metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.metric)
+
+
+class SeasonMetric(ObjectMetric):
+    # value = models.CharField(max_length=20)
+    season = models.ForeignKey(Season, on_delete=models.CASCADE, related_name='stats')
+    # metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.metric)
+
+
+class PlayerMetric(ObjectMetric):
+    # value = models.CharField(max_length=20)
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='stats')
+    # metric = models.ForeignKey(Metric, on_delete=models.CASCADE)
 
     def __str__(self):
         return str(self.metric)

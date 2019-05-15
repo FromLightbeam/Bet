@@ -4,30 +4,14 @@ import axios from 'axios';
 import * as api from "../consts/api";
 
 function Admin() {
-  function uploadFileMatch(event) {
+  function uploadFile(event, url) {
     let file = event.target.files[0];
-    console.log(file);
-
     if (file) {
       let data = new FormData();
       data.append('file', file);
 
       axios.post(
-        api.MATCH_CSV, data
-      );
-    }
-  }
-
-  function uploadFileMetric(event) {
-    let file = event.target.files[0];
-    console.log(file);
-
-    if (file) {
-      let data = new FormData();
-      data.append('file', file);
-
-      axios.post(
-        api.METRIC_CSV, data
+        url, data
       );
     }
   }
@@ -40,7 +24,7 @@ function Admin() {
           type='file'
           id='file'
           accept='.csv'
-          onChange={uploadFileMatch}
+          onChange={e => uploadFile(e, api.MATCH_CSV)}
         />
       </div>
       <div className='item'>
@@ -49,7 +33,7 @@ function Admin() {
           type='file'
           id='file'
           accept='.JSON'
-          onChange={uploadFileMetric}
+          onChange={e => uploadFile(e, api.METRIC_CSV)}
         />
         {/* <button onClick={uploadFileMatch}>Reload</button> */}
       </div>
@@ -59,7 +43,16 @@ function Admin() {
           type='file'
           id='file'
           accept='.json'
-          onChange={() => { }}
+          onChange={e => uploadFile(e, api.MATCH_JSON)}
+        />
+      </div>
+      <div className='item'>
+        <label>Upload all matches CSV (understat)</label>
+        <input
+          type='file'
+          id='file'
+          accept='.csv'
+          onChange={e => uploadFile(e, api.BULK_MACTH)}
         />
       </div>
     </div>

@@ -1,7 +1,9 @@
 const BACK = 'http://localhost:8000/api/v0'
 
 export const MATCH_CSV = `${BACK}/match-csv`;
+export const MATCH_JSON = `${BACK}/match-json`;
 export const METRIC_CSV = `${BACK}/metric-csv`;
+export const BULK_MACTH = `${BACK}/bulk-match`;
 
 export const SEASONS = `${BACK}/seasons/`
 export const LEAGUES = `${BACK}/leagues/`

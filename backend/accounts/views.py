@@ -12,6 +12,7 @@ from .serializers import *
 import re
 import csv
 import json
+import datetime
 import pandas as pd
 
 from .helper import get_or_create
@@ -100,7 +101,6 @@ class MatchCSVView(APIView):
     def post(self, request, format=None):
         # TODO sep request for configure that
 
-
         # TODO sep func need
         file_name = request.data['file'].name
         season_name = re.findall("[\d/]+-?[\d]*", file_name)
@@ -111,7 +111,7 @@ class MatchCSVView(APIView):
 
         data = pd.read_csv(StringIO(csv_file))
         # SHEEEEEEEEEEEEEEEEET WARNING FIX IT FIX IT FIX IT FIX IT FIX IT 
-        league = get_or_create(League, { 'name': 'Seria A' })
+        league = get_or_create(League, { 'name': 'LaLiga' })
         # FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT FIX IT 
         season = get_or_create(Season, { 'name': season_name })
     
@@ -149,27 +149,137 @@ class MatchCSVView(APIView):
 # May be it would be part parser configa?
 class MetricCSVView(APIView):
     def post(self, request, format=None):
-
         # TODO Dry
-        file_name = request.data['file'].name
-
         data = json.load(request.data['file'])
 
         fields = data['resources'][0]['schema']['fields']
-        # print(Metric.objects.all())
         metrics = []
         for field in fields:
             if not field['name'] in requried_fields.values():
                 metrics.append(field)
-        print(metrics)
         for metric in metrics:
             Metric.objects.filter(shortname=metric['name']).update(description=metric['description'])
-        # print(csv_file)
 
         return Response('darova')
 
-# May be it would be part parser configa?
+# May be it would be part of config parser?
 class MatchJSONView(APIView):
     def post(self, request, format=None):
+        # TODO Dry
+        file_name = request.data['file'].name
+        # season_name = re.findall("[\d/]+-?[\d]*", file_name)
+        data = json.load(request.data['file'])
+
+        # I want sleep
+        league = get_or_create(League, { 'name': 'LaLiga' })
+        season = get_or_create(Season, { 'name': '1819' })
+
+        matches = []
+        for match in data:
+            club_1 = get_or_create(Club, {'name': match['h']['title'] })
+            club_2 = get_or_create(Club, {'name': match['a']['title'] })
+            raw_date = match['datetime'].split(' ')[0].split('-')
+            # datetime.date(year, month, day) 
+            date = datetime.date(int(raw_date[0]), int(raw_date[1]), int(raw_date[2]))
+
+            args = {
+                'club_1': club_1,
+                'club_2': club_2,
+                'league': league,
+                'season': season,
+                'date': date
+            }
+            # if match['isResult']
+            metrics = {
+                'ForW': match['forecast']['w'],
+                'ForL': match['forecast']['l'],
+                'ForD': match['forecast']['d'],
+                'xG_a': match['xG']['a'],
+                'xG_h': match['xG']['h']
+            }
+
+            m = Match.objects.filter(**args)
+            if m:
+                for metric, value in metrics.items():
+                    # get or create tooooo long
+                    MatchMetric.objects.create(
+                        value=value,
+                        match=m[0],
+                        metric=Metric.objects.filter(shortname=metric)[0]
+                    )
+
+        print(len(matches))
         
+
+        return Response('dobryi vecher')
+
+class BulkMatchView(APIView):
+    def post(self, request, format=None):
+        requried_fields = {
+            'date': 'date',
+            'club_1': 'team_h',
+            'club_2': 'team_a',
+            'league': 'league',
+            'season': 'season'
+        }
+        # TODO Dry
+        file_name = request.data['file'].name
+        csv_file = request.data['file'].read().decode('utf-8')
+        data = pd.read_csv(StringIO(csv_file))
+
+
+        # data = data[0:2]
+
+        metrics = []
+        # TODO sep func need
+        for field in data.columns.values:
+            if not field in requried_fields.values():
+                metrics.append(get_or_create(Metric, { 'shortname': field }))
+        matches = []
+        match_metrics = []
+
+        for index, row in data.iterrows():
+            league = get_or_create(League, { 'name': row[requried_fields['league']] })
+            season = get_or_create(Season, { 'name': row[requried_fields['season']] })
+            club_1 = get_or_create(Club, {'name': row[requried_fields['club_1']] })
+            club_2 = get_or_create(Club, {'name': row[requried_fields['club_2']] })
+
+            # league = League.objects.get(name=row[requried_fields['league']])
+            # season = Season.objects.get(name=row[requried_fields['season']])
+            # club_1 = Club.objects.get(name=row[requried_fields['club_1']])
+            # club_2 = Club.objects.get(name=row[requried_fields['club_2']])
+
+            args = {
+                'id': row['id'],
+                'club_1': club_1,
+                'club_2': club_2,
+                'league': league,
+                'season': season,
+                'date': row[requried_fields['date']].split()[0]
+            }
+            # print(args)
+            match = Match(**args)
+            matches.append(match)
+            for metric in metrics:
+                match_metrics.append(
+                    MatchMetric(
+                        value=row[metric.shortname],
+                        match=match,
+                        metric=metric
+                    )
+                )
+                       
+        Match.objects.bulk_create(matches)
+        MatchMetric.objects.bulk_create(match_metrics)
+
+        # for match in matches:
+            # pass
+
+        # for metric in metrics:
+        #     # get or create tooooo long
+        #     MatchMetric.objects.create(
+        #         value=row[metric.shortname],
+        #         match=match,
+        #         metric=metric
+        #     )
         return Response('dobryi vecher')
