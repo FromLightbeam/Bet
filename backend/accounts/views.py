@@ -68,11 +68,11 @@ class MatchViewSet(viewsets.ModelViewSet):
         queryset = Match.objects.all()
         season = self.request.query_params.get('season')
         league = self.request.query_params.get('league')
-
+        # print(season)
         if season:
-            queryset = queryset.filter(season__name=season)
-        elif league:
-            queryset = queryset.filter(league_name=league)
+            queryset = queryset.filter(season__name=season, )
+        if league:
+            queryset = queryset.filter(league__name=league)
 
         return queryset
 
@@ -223,12 +223,8 @@ class BulkMatchView(APIView):
             'season': 'season'
         }
         # TODO Dry
-        file_name = request.data['file'].name
         csv_file = request.data['file'].read().decode('utf-8')
         data = pd.read_csv(StringIO(csv_file))
-
-
-        # data = data[0:2]
 
         metrics = []
         # TODO sep func need
@@ -272,14 +268,4 @@ class BulkMatchView(APIView):
         Match.objects.bulk_create(matches)
         MatchMetric.objects.bulk_create(match_metrics)
 
-        # for match in matches:
-            # pass
-
-        # for metric in metrics:
-        #     # get or create tooooo long
-        #     MatchMetric.objects.create(
-        #         value=row[metric.shortname],
-        #         match=match,
-        #         metric=metric
-        #     )
         return Response('dobryi vecher')

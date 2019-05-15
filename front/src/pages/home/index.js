@@ -30,8 +30,8 @@ function Home() {
 
   useEffect(() => {
     if (seasons.length && leagues.length) {
-      const s = season ? season : (seasons[0].name && '');
-      const l = league ? league : (leagues[0].name && '');
+      const s = season ? season : seasons[0].name;
+      const l = league ? league : leagues[0].name;
       getMatches(s, l).then(response => setMathes(response.data))
     }
   }, [season, league])
