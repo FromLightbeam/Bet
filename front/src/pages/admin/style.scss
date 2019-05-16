@@ -1,0 +1,11 @@
+.admin-content {
+    display: flex;
+
+    &__uploads {
+        flex: 1;
+    }
+
+    &__config {
+        flex: 5;
+    }
+}
