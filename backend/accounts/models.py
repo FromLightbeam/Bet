@@ -134,7 +134,7 @@ class PlayerMetric(ObjectMetric):
 
 
 class ConfigParser(models.Model):
-    nameField = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
     seasonField = models.CharField(max_length=50)
     seasonFormat = models.CharField(max_length=20)
     leagueField = models.CharField(max_length=50)
@@ -142,6 +142,7 @@ class ConfigParser(models.Model):
     dateFormat = models.CharField(max_length=50)
     club1Field = models.CharField(max_length=50)
     club2Field = models.CharField(max_length=50)
+    metrics_exclude = model.TextField(max_length=50)
 
 
 @receiver(post_save, sender=User)

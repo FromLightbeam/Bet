@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 
 import UploadButton from "../../components/admin/UploadButton";
@@ -8,15 +8,21 @@ import './style.scss';
 
 
 function Admin() {
-  function uploadFile(event, url) {
-    let file = event.target.files[0];
-    if (file) {
-      let data = new FormData();
-      data.append('file', file);
 
-      axios.post(
-        url, data
-      );
+  const [filename, setFilename] = useState('');
+  const [fields, setFields] = useState([]);
+
+  function uploadFile(event, url) {
+    console.log(event.target.files)
+    if (event.target.files.length) {
+      setFilename(event.target.files[0].name);
+      let file = event.target.files[0];
+      if (file) {
+        let data = new FormData();
+        data.append('file', file);
+
+        // axios.post(url, data);
+      }
     }
   }
 
@@ -37,10 +43,13 @@ function Admin() {
         />
       </div>
       <div className='item admin-content__config'>
-        <ConfigParser />
+        <ConfigParser 
+          filename={filename}
+          fields={fields}
+        />
       </div>
     </div>
   );
 }
 
-export default Admin
+export default Admin;
