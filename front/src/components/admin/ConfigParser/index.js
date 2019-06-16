@@ -130,7 +130,18 @@ function ConfigParser(props) {
         {fields.map(field =>
           <FormControlLabel
             key={field}
-            control={<Checkbox checked={!!field} onChange={() => { }} value={field} />}
+            control={
+              <Checkbox
+                checked={!metricsExclude.includes(field)}
+                onChange={e => {
+                  if (metricsExclude.includes(field))
+                    setMetricsExclude(metricsExclude.filter(el => field !== el))
+                  else
+                    setMetricsExclude([...metricsExclude, field])
+                }}
+                value={field}
+              />
+            }
             label={field}
           />
         )}
