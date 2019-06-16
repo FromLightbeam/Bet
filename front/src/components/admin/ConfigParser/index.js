@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Paper from '@material-ui/core/Paper';
 import Divider from '@material-ui/core/Divider';
 import Select from '@material-ui/core/Select';
-import { Checkbox, FormGroup, FormControlLabel, Button } from '@material-ui/core';
+import { Checkbox, FormGroup, FormControlLabel, Button, TextField } from '@material-ui/core';
 
 import { getSeasons, getLeagues } from '../../../api/api';
 import Dialog from "./Dialog";
@@ -16,7 +16,7 @@ function ConfigParser(props) {
   const { filename, fields, names, setConfig, getConfigs } = props;
 
   useEffect(() => { getConfigs() }, []);
-
+  console.log(names)
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [seasonField, setSeasonField] = useState('');
@@ -33,7 +33,8 @@ function ConfigParser(props) {
     console.log('name', name);
     console.log('seasonField', seasonField);
     console.log('seasonName', seasonName);
-    console.log('leagueField', leagueName);
+    console.log('leagueField', leagueField);
+    console.log('leagueName', leagueName);
     console.log('dateField', dateField);
     console.log('dateFormat', dateFormat);
     console.log('club1', club1);
@@ -68,7 +69,7 @@ function ConfigParser(props) {
           {names.map(config =>
             <option
               key={config.name}
-              value={config}
+              value={config.name}
             >
               {config.name}
             </option>
@@ -92,7 +93,7 @@ function ConfigParser(props) {
         setName={setLeagueName}
         field={leagueField}
         fields={fields}
-        setField={leagueField}
+        setField={setLeagueField}
         getNames={getLeagues}
       />
       <Divider />
@@ -112,6 +113,16 @@ function ConfigParser(props) {
           value={club2}
           setValue={setClub2}
         />
+      </div>
+      <Divider />
+      <div>
+        <h3>Date</h3>
+        <UseField
+          fields={fields}
+          value={dateField}
+          setValue={setDateField}
+        />
+        <TextField value={dateFormat} onChange={e => setDateFormat(e.target.value)}/>
       </div>
       <Divider />
       <h3>Metrics</h3>

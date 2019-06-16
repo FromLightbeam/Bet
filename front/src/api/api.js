@@ -23,9 +23,9 @@ export const getMatches = (season, league) =>
   });
 
 export function getConfigs() {
-  return axios.get(api.CONFIGS)
+  return axios.get(api.CONFIGS);
 }
 
 export function setConfig(data) {
-  return axios.post(api.CONFIGS, data).then(() => getConfigs())
+  return axios.post(api.CONFIGS, data);
 }

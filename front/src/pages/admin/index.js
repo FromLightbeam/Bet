@@ -37,6 +37,14 @@ function Admin() {
     }
   }
 
+  function getUpdateConfigs() {
+    return getConfigs().then(response => setConfigs(response.data));
+  }
+
+  function setUpdateConfigs(data) {
+    return setConfig(data).then(() => getUpdateConfigs())
+  }
+
   return (
     <div className='content admin-content'>
       <div className='admin-content__uploads'>
@@ -55,8 +63,8 @@ function Admin() {
       </div>
       <div className='item admin-content__config'>
         <ConfigParser
-          getConfigs={() => getConfigs().then(response => setConfigs(response.data))}
-          setConfig={setConfig}
+          getConfigs={getUpdateConfigs}
+          setConfig={setUpdateConfigs}
           filename={filename}
           fields={fields}
           names={configs}
