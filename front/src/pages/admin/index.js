@@ -12,11 +12,22 @@ function Admin() {
   const [filename, setFilename] = useState('');
   const [fields, setFields] = useState([]);
 
+  const [configs, setConfigs] = useState([]);
+
   function uploadFile(event, url) {
     console.log(event.target.files)
     if (event.target.files.length) {
       setFilename(event.target.files[0].name);
       let file = event.target.files[0];
+      var reader = new FileReader();
+
+      reader.onload = function(e) {
+          var text = reader.result;     
+          var firstLine = text.split('\n').shift(); 
+          setFields(firstLine.split(','))
+      }
+
+      reader.readAsText(file, 'UTF-8');
       if (file) {
         let data = new FormData();
         data.append('file', file);
@@ -24,6 +35,14 @@ function Admin() {
         // axios.post(url, data);
       }
     }
+  }
+
+  function getConfigs() {
+    return axios.get(api.CONFIGS).then(response => setConfigs(response.data))
+  }
+
+  function setConfig(data) {
+    return axios.post(api.CONFIGS, data).then(() => getConfigs())
   }
 
   return (
@@ -43,9 +62,12 @@ function Admin() {
         />
       </div>
       <div className='item admin-content__config'>
-        <ConfigParser 
+        <ConfigParser
+          getConfigs={getConfigs}
+          setConfig={setConfig}
           filename={filename}
           fields={fields}
+          names={configs}
         />
       </div>
     </div>
