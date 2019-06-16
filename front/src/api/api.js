@@ -29,3 +29,13 @@ export function getConfigs() {
 export function setConfig(data) {
   return axios.post(api.CONFIGS, data);
 }
+
+export function updateConfig(id, data) {
+  // console.log(id);
+  // console.log(data);
+  return axios.put(api.CONFIGS + id + '/', data);
+}
+
+export function processMatchs(data) {
+  return axios.post(api.BULK_MACTH, data);
+}

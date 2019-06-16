@@ -2,38 +2,38 @@ import React, { useState } from 'react';
 
 import UploadButton from "../../components/admin/UploadButton";
 import ConfigParser from "../../components/admin/ConfigParser";
-import { getConfigs, setConfig } from '../../api/api';
+import { getConfigs, setConfig, processMatchs } from '../../api/api';
 import * as api from '../../consts/api';
 import './style.scss';
 
 
 function Admin() {
-
+  const [file, setFile] = useState(null);
   const [filename, setFilename] = useState('');
   const [fields, setFields] = useState([]);
 
   const [configs, setConfigs] = useState([]);
 
   function uploadFile(event, url) {
-    console.log(event.target.files)
+
     if (event.target.files.length) {
       setFilename(event.target.files[0].name);
       let file = event.target.files[0];
       var reader = new FileReader();
-
       reader.onload = function(e) {
           var text = reader.result;     
           var firstLine = text.split('\n').shift(); 
           setFields(firstLine.split(','))
       }
-
       reader.readAsText(file, 'UTF-8');
-      if (file) {
-        let data = new FormData();
-        data.append('file', file);
+    }
+  }
 
-        // axios.post(url, data);
-      }
+  function process() {
+    if (file) {
+      let data = new FormData();
+      data.append('file', file);
+      processMatchs(data);
     }
   }
 
@@ -68,6 +68,7 @@ function Admin() {
           filename={filename}
           fields={fields}
           names={configs}
+          process={process}
         />
       </div>
     </div>

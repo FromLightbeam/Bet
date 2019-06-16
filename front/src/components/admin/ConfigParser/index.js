@@ -5,7 +5,7 @@ import Divider from '@material-ui/core/Divider';
 import Select from '@material-ui/core/Select';
 import { Checkbox, FormGroup, FormControlLabel, Button, TextField } from '@material-ui/core';
 
-import { getSeasons, getLeagues } from '../../../api/api';
+import { getSeasons, getLeagues, updateConfig } from '../../../api/api';
 import Dialog from "./Dialog";
 import ParsingChoice, { UseField } from './ParsingChoice';
 import './style.scss';
@@ -13,10 +13,10 @@ import './style.scss';
 
 
 function ConfigParser(props) {
-  const { filename, fields, names, setConfig, getConfigs } = props;
+  const { filename, fields, names, setConfig, getConfigs, process } = props;
 
   useEffect(() => { getConfigs() }, []);
-  console.log(names)
+
   const [open, setOpen] = useState(false);
   const [name, setName] = useState('');
   const [seasonField, setSeasonField] = useState('');
@@ -42,6 +42,10 @@ function ConfigParser(props) {
     console.log('metricsExclude', metricsExclude);
   }
 
+  function getIdConfigbyName(name) {
+    return names.find(conf => conf.name === name); 
+  }
+
   return filename ?
     <Paper className='config-content'>
       <Dialog
@@ -63,7 +67,30 @@ function ConfigParser(props) {
         <Select
           native
           value={name}
-          onChange={e => setName(e.target.value)}
+          onChange={e => {
+            let name = e.target.value;
+            setName(name);
+            let conf = getIdConfigbyName(name);
+            setSeasonField(conf.seasonField);
+            setSeasonName(conf.seasonName);
+            setLeagueField(conf.leagueField);
+            setLeagueName(conf.leagueName);
+            setDateField(conf.dateField);
+            setDateFormat(conf.dateFormat);
+            setClub1(conf.club1);
+            setClub2(conf.club2);
+            setMetricsExclude(conf.metricsExclude.split(','));
+
+            console.log('seasonField', seasonField);
+            console.log('seasonName', seasonName);
+            console.log('leagueField', leagueField);
+            console.log('leagueName', leagueName);
+            console.log('dateField', dateField);
+            console.log('dateFormat', dateFormat);
+            console.log('club1', club1);
+            console.log('club2', club2);
+            console.log('metricsExclude', metricsExclude);
+          }}
         >
           <option value="" />
           {names.map(config =>
@@ -122,7 +149,7 @@ function ConfigParser(props) {
           value={dateField}
           setValue={setDateField}
         />
-        <TextField value={dateFormat} onChange={e => setDateFormat(e.target.value)}/>
+        <TextField value={dateFormat} onChange={e => setDateFormat(e.target.value)} />
       </div>
       <Divider />
       <h3>Metrics</h3>
@@ -147,9 +174,29 @@ function ConfigParser(props) {
         )}
       </FormGroup>
       <Divider />
-      <Button color='primary' variant='contained' onClick={submit}>
-        Submit
+      <Button color='primary' variant='contained' onClick={process}>
+        Proccess
       </Button>
+      {name ?
+        <Button
+          color='primary'
+          variant='contained'
+          onClick={() =>
+            updateConfig(getIdConfigbyName(name).id,
+              {
+                name,
+                seasonField,
+                seasonName,
+                leagueField,
+                leagueName,
+                dateField,
+                dateFormat,
+                club1,
+                club2,
+                metricsExclude: metricsExclude.join(',')
+              })}>
+          Save Config
+      </Button> : null}
     </Paper> : null;
 }
 
