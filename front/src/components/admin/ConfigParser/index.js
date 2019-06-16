@@ -5,10 +5,10 @@ import Divider from '@material-ui/core/Divider';
 import Select from '@material-ui/core/Select';
 import { Checkbox, FormGroup, FormControlLabel, Button } from '@material-ui/core';
 
+import { getSeasons, getLeagues } from '../../../api/api';
 import Dialog from "./Dialog";
+import ParsingChoice, { UseField } from './ParsingChoice';
 import './style.scss';
-import ParsingChoice from './ParsingChoice';
-
 
 
 
@@ -29,9 +29,21 @@ function ConfigParser(props) {
   const [club2, setClub2] = useState('');
   const [metricsExclude, setMetricsExclude] = useState([]);
 
+  function submit() {
+    console.log('name', name);
+    console.log('seasonField', seasonField);
+    console.log('seasonName', seasonName);
+    console.log('leagueField', leagueName);
+    console.log('dateField', dateField);
+    console.log('dateFormat', dateFormat);
+    console.log('club1', club1);
+    console.log('club2', club2);
+    console.log('metricsExclude', metricsExclude);
+  }
+
   return filename ?
     <Paper className='config-content'>
-      <Dialog 
+      <Dialog
         open={open}
         handleClose={() => setOpen(false)}
         handleSubmit={setConfig}
@@ -53,7 +65,7 @@ function ConfigParser(props) {
           onChange={e => setName(e.target.value)}
         >
           <option value="" />
-          {names.map(config => 
+          {names.map(config =>
             <option
               key={config.name}
               value={config}
@@ -65,38 +77,42 @@ function ConfigParser(props) {
       </div>
       <Divider />
       <h3>Season</h3>
-      <ParsingChoice 
+      <ParsingChoice
         name={seasonName}
-        field={''}
-        getNames={() => {}}
+        setName={setSeasonName}
+        field={seasonField}
+        fields={fields}
+        setField={setSeasonField}
+        getNames={getSeasons}
       />
       <Divider />
       <h3>League</h3>
-      <ParsingChoice 
+      <ParsingChoice
         name={leagueName}
-        field={''}
-        getNames={() => {}}
+        setName={setLeagueName}
+        field={leagueField}
+        fields={fields}
+        setField={leagueField}
+        getNames={getLeagues}
       />
       <Divider />
-      <h3>First Club</h3>
-      <Select
-        native
-        value={club1}
-        onChange={e => setClub1(e.target.value)}
-      >
-        <option value="" />
-        {fields.map(field => <option key={field} value={field}>{field}</option>)}
-      </Select>
+      <div>
+        <h3>First Club</h3>
+        <UseField
+          fields={fields}
+          value={club1}
+          setValue={setClub1}
+        />
+      </div>
       <Divider />
-      <h3>Second Club</h3>
-      <Select
-        native
-        value={club2}
-        onChange={e => setClub2(e.target.value)}
-      >
-        <option value="" />
-        {fields.map(field => <option key={field} value={field}>{field}</option>)}
-      </Select>
+      <div>
+        <h3>Second Club</h3>
+        <UseField
+          fields={fields}
+          value={club2}
+          setValue={setClub2}
+        />
+      </div>
       <Divider />
       <h3>Metrics</h3>
       <FormGroup className='config-content__columns'>
@@ -109,7 +125,7 @@ function ConfigParser(props) {
         )}
       </FormGroup>
       <Divider />
-      <Button color='primary' variant='contained'>
+      <Button color='primary' variant='contained' onClick={submit}>
         Submit
       </Button>
     </Paper> : null;

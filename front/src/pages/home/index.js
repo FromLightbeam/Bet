@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import MatchList from '../../components/home/MatchList';
 import Filter from '../../components/home/Filter';
-import { getLeagues, getSeasons, getMatches } from '../../api/api'
+import { getLeagues, getSeasons, getMatches } from '../../api/api';
 import './style.scss';
 
 

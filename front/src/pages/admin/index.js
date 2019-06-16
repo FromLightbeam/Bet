@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 
 import UploadButton from "../../components/admin/UploadButton";
 import ConfigParser from "../../components/admin/ConfigParser";
-import * as api from "../../consts/api";
+import { getConfigs, setConfig } from '../../api/api';
+import * as api from '../../consts/api';
 import './style.scss';
 
 
@@ -37,14 +37,6 @@ function Admin() {
     }
   }
 
-  function getConfigs() {
-    return axios.get(api.CONFIGS).then(response => setConfigs(response.data))
-  }
-
-  function setConfig(data) {
-    return axios.post(api.CONFIGS, data).then(() => getConfigs())
-  }
-
   return (
     <div className='content admin-content'>
       <div className='admin-content__uploads'>
@@ -63,7 +55,7 @@ function Admin() {
       </div>
       <div className='item admin-content__config'>
         <ConfigParser
-          getConfigs={getConfigs}
+          getConfigs={() => getConfigs().then(response => setConfigs(response.data))}
           setConfig={setConfig}
           filename={filename}
           fields={fields}
