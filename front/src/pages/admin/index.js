@@ -26,14 +26,15 @@ function Admin() {
           setFields(firstLine.split(','))
       }
       reader.readAsText(file, 'UTF-8');
+      setFile(file);
     }
   }
 
-  function process() {
+  function process(name) {
     if (file) {
       let data = new FormData();
       data.append('file', file);
-      processMatchs(data);
+      processMatchs(data, name);
     }
   }
 

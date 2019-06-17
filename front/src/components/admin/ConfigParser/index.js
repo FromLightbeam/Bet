@@ -77,8 +77,8 @@ function ConfigParser(props) {
             setLeagueName(conf.leagueName);
             setDateField(conf.dateField);
             setDateFormat(conf.dateFormat);
-            setClub1(conf.club1);
-            setClub2(conf.club2);
+            setClub1(conf.club1Field);
+            setClub2(conf.club2Field);
             setMetricsExclude(conf.metricsExclude.split(','));
 
             console.log('seasonField', seasonField);
@@ -174,7 +174,7 @@ function ConfigParser(props) {
         )}
       </FormGroup>
       <Divider />
-      <Button color='primary' variant='contained' onClick={process}>
+      <Button color='primary' variant='contained' onClick={() => process(name)}>
         Proccess
       </Button>
       {name ?
@@ -191,8 +191,8 @@ function ConfigParser(props) {
                 leagueName,
                 dateField,
                 dateFormat,
-                club1,
-                club2,
+                club1Field: club1,
+                club2Field: club2,
                 metricsExclude: metricsExclude.join(',')
               })}>
           Save Config
