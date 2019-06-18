@@ -11,7 +11,6 @@ import ParsingChoice, { UseField } from './ParsingChoice';
 import './style.scss';
 
 
-
 function ConfigParser(props) {
   const { filename, fields, names, setConfig, getConfigs, process } = props;
 
@@ -43,7 +42,7 @@ function ConfigParser(props) {
   }
 
   function getIdConfigbyName(name) {
-    return names.find(conf => conf.name === name); 
+    return names.find(conf => conf.name === name);
   }
 
   return filename ?
@@ -149,7 +148,16 @@ function ConfigParser(props) {
           value={dateField}
           setValue={setDateField}
         />
-        <TextField value={dateFormat} onChange={e => setDateFormat(e.target.value)} />
+        <Select
+          native
+          value={dateFormat}
+          onChange={e => setDateFormat(e.target.value)}
+        >
+          <option value="" />
+          <option value="date">Date</option>
+          <option value="datetime">Datetime</option>
+        </Select>
+        {/* <Select value={dateFormat} onChange={e => setDateFormat(e.target.value)} /> */}
       </div>
       <Divider />
       <h3>Metrics</h3>
@@ -194,7 +202,7 @@ function ConfigParser(props) {
                 club1Field: club1,
                 club2Field: club2,
                 metricsExclude: metricsExclude.join(',')
-              })}>
+              }).then(() => getConfigs())}>
           Save Config
       </Button> : null}
     </Paper> : null;

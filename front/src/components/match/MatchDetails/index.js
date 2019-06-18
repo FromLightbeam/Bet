@@ -8,6 +8,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 
 import Paper from "../../../components/common/Paper";
+import Stats from './Stats';
 import "./style.scss";
 
 const styles = theme => ({
@@ -25,6 +26,16 @@ const styles = theme => ({
   }
 });
 
+function getStats(stats) {
+  let names = ['h_goals', 'a_goals', 'h_xg', 'a_xg', 
+               'h_w', 'h_d', 'h_l', 'h_shot', 
+               'a_shot', 'h_shotOnTarget', 'a_shotOnTarget',
+               'h_deep', 'a_deep', 'a_ppda', 'h_ppda' ];
+  let conv_format = {}
+  stats.filter(s => names.find(label => s.metric.shortname == label)).map(s => { conv_format[s.metric.shortname] = parseFloat(s.value)});
+  return conv_format
+}
+
 function MatchDetails(props) {
   const { match, metrics, classes } = props;
   console.log(metrics)
@@ -33,6 +44,9 @@ function MatchDetails(props) {
       {match.club_1 ?
         <h2>{`${match.club_1.name} - ${match.club_2.name}`}</h2> : null
       }
+      <Stats 
+        stats={getStats(metrics)}
+      />
       <div className='match-details__table'>
         <Table className={classes.table}>
           <TableHead className='match-details__head'>
