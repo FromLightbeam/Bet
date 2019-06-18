@@ -1,12 +1,11 @@
 import React from 'react';
 
 import "./style.scss";
-import { statSync } from 'fs';
 
 function Stats(props) {
-  const { className, stats } = props;
+  const { stats } = props;
 
-  function showDecimal(number){
+  function showDecimal(number) {
     return number > 0.075 ? number.toFixed(2) : '';
   }
 
@@ -15,27 +14,45 @@ function Stats(props) {
   const getXPoint = (w, d) => (3 * w + 1 * d) / 3;
   let h_xPTS;
   let a_xPTS;
-  if (stats.h_xg){
+  if (stats.h_xg) {
     h_xPTS = getXPoint(stats.h_w, stats.h_d);
     a_xPTS = getXPoint(stats.h_l, stats.h_d);
   }
 
-  return ( stats.h_xg ?
+  return (stats.h_xg ?
     <div className='stats__content'>
       <div className='stats__item'>
         <div className='stats__label'>Goal</div>
-        <div
-          className='stats__line stats--left'
-          style={{ width: `${stats.h_goals / (stats.h_goals + stats.a_goals) * 100}%` }}
-        >
-          {showInt(stats.h_goals)}
-        </div>
-        <div
-          className='stats__line stats--right'
-          style={{ width: `${stats.a_goals / (stats.h_goals + stats.a_goals) * 100}%` }}
-        >
-          {showInt(stats.a_goals)}
-        </div>
+        {stats.h_goals == 0 && stats.a_goals == 0 ?
+          <>
+            <div
+              className='stats__line stats--left'
+              style={{ width: '50%' }}
+            >
+              0
+            </div>
+            <div
+              className='stats__line stats--right'
+              style={{ width: '50%' }}
+            >
+              0
+            </div>
+          </> :
+          <>
+            <div
+              className='stats__line stats--left'
+              style={{ width: `${stats.h_goals / (stats.h_goals + stats.a_goals) * 100}%` }}
+            >
+              {showInt(stats.h_goals)}
+            </div>
+            <div
+              className='stats__line stats--right'
+              style={{ width: `${stats.a_goals / (stats.h_goals + stats.a_goals) * 100}%` }}
+            >
+              {showInt(stats.a_goals)}
+            </div>
+          </>
+        }
       </div>
 
       <div className='stats__item'>

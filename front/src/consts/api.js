@@ -1,4 +1,9 @@
-const BACK = 'http://localhost:8000/api/v0'
+// Local
+// const BACK = 'http://localhost:8000/api/v0'
+
+// Prod
+const BACK = 'https://test-281.herokuapp.com/api/v0'
+
 
 export const MATCH_CSV = `${BACK}/match-csv/`;
 export const MATCH_JSON = `${BACK}/match-json`;

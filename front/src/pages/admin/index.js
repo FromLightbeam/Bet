@@ -5,6 +5,7 @@ import ConfigParser from "../../components/admin/ConfigParser";
 import { getConfigs, setConfig, processMatchs } from '../../api/api';
 import * as api from '../../consts/api';
 import './style.scss';
+import axios from 'axios';
 
 
 function Admin() {
@@ -30,6 +31,19 @@ function Admin() {
     }
   }
 
+  function uploadMerticFile(event, url) {
+
+    if (event.target.files.length) {
+      let file = event.target.files[0];
+
+      if (file) {
+        let data = new FormData();
+        data.append('file', file);
+        axios.post(url, data);
+      }
+    }
+  }
+
   function process(name) {
     if (file) {
       let data = new FormData();
@@ -52,7 +66,7 @@ function Admin() {
         <UploadButton
           inputId='json-metric'
           accept='.JSON'
-          onChange={e => uploadFile(e, api.METRIC_CSV)}
+          onChange={e => uploadMerticFile(e, api.METRIC_CSV)}
           label='Upload JSON Metric'
         />
         <UploadButton
